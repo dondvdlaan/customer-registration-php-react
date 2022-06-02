@@ -1,0 +1,120 @@
+/****************
+*** DEFAULTS
+*****************/
+* { margin: 0px; padding: 0px; }
+
+html { height: 100%; box-sizing: border-box; }
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+/* HEADINGS DEFAULT */
+h1, h2, h3, h4, h5, h6 { color: #444; font-family: 'Averia Serif Libre', cursive; }
+a { text-decoration: none; }
+ul, ol { margin-left: 40px; }
+hr { margin: 10px 0px; opacity: .25; }
+
+/* NAVBAR */
+.navbar {
+	margin: 0 auto;
+    overflow: hidden;
+	background-color: #3E606F;
+    border-radius: 0px 0px 6px 6px;
+}
+.navbar ul {
+    list-style-type: none;
+    float: right;
+}
+.navbar ul li {
+    float: left;
+    font-family: 'Noto Serif', serif;
+}
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 28px;
+    text-decoration: none;
+}
+.navbar ul li a:hover {
+	color: #B9E6F2;
+    background-color: #334F5C;
+}
+/********** COMMON FORMULAR STYLES **********/
+fieldset, input, textarea, select {
+	border-radius: 5px;
+}
+fieldset {
+	margin-bottom: 10px;
+}
+fieldset fieldset {
+	width: 78%;
+	border: 1px solid gray;
+}
+select.day {
+	width: 75px;
+}
+select.month {
+	width: 100px;
+}
+select.year {
+	width: 75px;
+}
+input, textarea  {
+	margin: 5px 0;
+	padding: 5px;
+	width: 80%;
+}
+textarea {
+	height: 100px;
+	font-family: verdana;
+}
+input[type="submit"] {
+	width: 100%;
+}
+input.short {
+	width: 325px;
+}
+
+/********** USER MESSAGES STYLES **********/
+.error {
+	color: red;
+}
+.success {
+	color: green;
+}
+.info {
+	color: darkorange;
+}
+.marker {
+	color: darkred;
+	font-size: 1.1em;
+	padding-left: 10px;
+	font-weight: bold;
+}
+/********** MISCELLANEOUS **********/
+hr{
+	height:5px;
+	border-width:0;
+	color:rgb(7, 1, 21);
+	background-color:gray
+}
+p.small { 
+	font-size: 1em; color: gray;
+}
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+.divBlog{
+	border: dotted;
+	margin: 5px 0;
+	padding: 5px;
+	width: 80%;
+	height: auto;
+	background-color: rgb(200, 230, 230);
+}
