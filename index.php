@@ -47,47 +47,23 @@ if(DEBUG_V)		    echo "Line " . __LINE__ . "\$action: $action (" . basename(__FI
 					#********** FETCH allJobs **********#
 					if( $action === 'allJobs'){
 if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Auswerten Kategorie... <i>(" . basename(__FILE__) . ")</i></p>\n";
-						
-					#********** DB OPERATION **********#
-											
-					// Schritt 1 DB: DB-Verbindung herstellen
-					$PDO = dbConnect(DB_NAME);
-
-					#********** SELECT TABLES **********#
-if(DEBUG)		echo "Line " . __LINE__ . "Lese Nr. Jos aus DB aus... <i>(" . basename(__FILE__) . ")";
-
-					$sql 		= 'SELECT *
-									FROM jobs';
-							
-					$params 	= array();
-
-					// Schritt 2 DB: SQL-Statement vorbereiten
-					$PDOStatement = $PDO->prepare($sql);
-											
-					// Schritt 3 DB: SQL-Statement ausführen und ggf. Platzhalter füllen
-					try {	
-					$PDOStatement->execute($params);						
-					} catch(PDOException $error) {
-if(DEBUG)			echo "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" . basename(__FILE__) . ")";										
-					$dbError = 'Fehler beim Zugriff auf die Datenbank!';
-					}
-
-					// Schritt 4 DB: Daten weiterverarbeiten
-					$jobs = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
-
-if(DEBUG_V)			echo "Line " . __LINE__ . " (" . basename(__FILE__) . ")";					
-if(DEBUG_V)			print_r($blogs);					
-
-					// Zählen, wieviele Datensätze zurückgeliefert wurden
-					$rowCount = $PDOStatement->rowCount();
-if(DEBUG_V)			echo "Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__FILE__) . ")";
 					
-					// Reply to customer
-					$myJSON = json_encode($jobs);
-					echo $myJSON;
+					// Retriev jobs table
+					$jobs = retrieveTable('jobs');
+if(DEBUG_V)		    echo "Line " . __LINE__ . "\$jobs : $jobs (" . basename(__FILE__) . ")";
 
-					// DB-Verbindung beenden
-					unset($PDO);
+					// Reply to customer
+					echo $jobs;
+
+					#********** FETCH allCompanies **********#
+					}elseif ($action === 'allCompanies'){
+
+					// Retrieve companies table
+					$companies = retrieveTable('companies');
+if(DEBUG_V)		    echo "Line " . __LINE__ . "\$companies : $companies (" . basename(__FILE__) . ")";
+
+					// Reply to customer
+					echo $companies;
 
 					} // END Verzweigung
 				} // END URL PARAMETERS
