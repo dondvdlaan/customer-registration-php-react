@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `jobs`
 --
 
+DROP TABLE IF EXISTS 'jobs';
 CREATE TABLE `jobs` (
   `jobID` int(11) NOT NULL,
   `jobItem` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -54,6 +55,7 @@ ALTER TABLE `jobs`
 -- Table structure for table `companies`
 --
 
+DROP TABLE IF EXISTS `companies`;
 CREATE TABLE `companies` (
   `compID` int(11) NOT NULL,
   `compName` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -76,6 +78,7 @@ ALTER TABLE `companies`
 -- Table structure for table `employees`
 --
 
+DROP TABLE IF EXISTS `employees`;
 CREATE TABLE `employees` (
   `emplID` int(11) NOT NULL,
   `emplFirstName` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,

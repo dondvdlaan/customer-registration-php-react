@@ -48,8 +48,13 @@ if(DEBUG_V)		    echo "Line " . __LINE__ . "\$action: $action (" . basename(__FI
 					if( $action === 'allJobs'){
 if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Auswerten Kategorie... <i>(" . basename(__FILE__) . ")</i></p>\n";
 					
+					$sql 		= 'SELECT * FROM jobs
+								INNER JOIN companies USING(compID)';
+				
+					$params 	= array();
+
 					// Retriev jobs table
-					$jobs = retrieveTable('jobs');
+					$jobs = retrieveTable($sql, $params);
 if(DEBUG_V)		    echo "Line " . __LINE__ . "\$jobs : $jobs (" . basename(__FILE__) . ")";
 
 					// Reply to customer
@@ -58,8 +63,12 @@ if(DEBUG_V)		    echo "Line " . __LINE__ . "\$jobs : $jobs (" . basename(__FILE_
 					#********** FETCH allCompanies **********#
 					}elseif ($action === 'allCompanies'){
 
+					$sql 		= 'SELECT * FROM companies';
+								
+					$params 	= array();
+
 					// Retrieve companies table
-					$companies = retrieveTable('companies');
+					$companies = retrieveTable($sql, $params);
 if(DEBUG_V)		    echo "Line " . __LINE__ . "\$companies : $companies (" . basename(__FILE__) . ")";
 
 					// Reply to customer

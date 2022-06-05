@@ -52,7 +52,7 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 				*	@param [String $tableNmae]			Name of Dtable to be retrieved
 				*	@return Object						Table as objekt
 				*/
-				function retrieveTable($tableName) {
+				function retrieveTable($sql, $params) {
 					
 if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename(__FILE__) . ")";
 
@@ -64,10 +64,10 @@ if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename
 					#********** SELECT TABLES **********#
 if(DEBUG)		echo "Line " . __LINE__ . "Lese Nr. Jos aus DB aus... <i>(" . basename(__FILE__) . ")";
 
-					$sql 		= 'SELECT *
-									FROM ' . $tableName ;
+					// $sql 		= 'SELECT * FROM jobs
+					// 				INNER JOIN companies USING(compID)';
 							
-					$params 	= array();
+					// $params 	= array();
 
 					// Schritt 2 DB: SQL-Statement vorbereiten
 					$PDOStatement = $PDO->prepare($sql);
