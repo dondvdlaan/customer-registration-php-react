@@ -53,8 +53,15 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 				*	@return Object						Table as objekt
 				*/
 				function retrieveTable($sql, $params) {
+				
+					$log_time = date('Y-m-d h:i:sa');
+				wh_log("************** Start Log For Day : '" . $log_time . "'**********");
 					
 if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename(__FILE__) . ")";
+
+  
+				wh_log("sql$ " . $sql);
+				wh_log("params in function: " . implode(",", $params));
 
 					#********** DB OPERATION **********#
 											
@@ -78,6 +85,8 @@ if(DEBUG)		echo "Line " . __LINE__ . "Lese Nr. Jos aus DB aus... <i>(" . basenam
 					} catch(PDOException $error) {
 if(DEBUG)			echo "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" . basename(__FILE__) . ")";										
 					$dbError = 'Fehler beim Zugriff auf die Datenbank!';
+					
+					wh_log("$dbError " . $dbError);
 					}
 
 					// Schritt 4 DB: Daten weiterverarbeiten
@@ -90,6 +99,8 @@ if(DEBUG_V)			print_r($jobs);
 					$rowCount = $PDOStatement->rowCount();
 if(DEBUG_V)			echo "Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__FILE__) . ")";
 					
+					wh_log("Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__FILE__) . ")");
+
 					// Reply to customer
 					$myJSON = json_encode($jobs);
 					// echo $myJSON;

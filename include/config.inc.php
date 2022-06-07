@@ -37,6 +37,7 @@
 				#********** DEBUGGING *********************#				
 				define('DEBUG', 						false);	// Debugging main documents
 				define('DEBUG_V', 						false);	// Debugging for values
+				define('DEBUG_V_P',						false);	// Debugging for values Parcial
 				define('DEBUG_F', 						false);	// Debugging for functions
 				define('DEBUG_I', 						false);	// Debugging for included files
 				define('DEBUG_DB', 						false);	// Debugging for database operations

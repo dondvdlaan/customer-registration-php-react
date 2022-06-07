@@ -27,13 +27,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `jobs`
 --
 
-DROP TABLE IF EXISTS 'jobs';
+DROP TABLE IF EXISTS jobs;
 CREATE TABLE `jobs` (
   `jobID` int(11) NOT NULL,
-  `jobItem` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jobTitle` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jobDescription` text COLLATE utf8mb4_unicode_ci NOT NULL, 
   `jobDetails` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jobDate` date DEFAULT NULL,
+  `jobDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `jobStatus` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `compID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,0 +1,1246 @@
+************** Start Log For Day : '2022-06-07 10:15:18am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 10:15:19am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: z (index.php)
+params before function: z,z,z,pending,27
+************** Start Log For Day : '2022-06-07 10:15:34am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: z,z,z,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue[]
+Line 106$compID: 28 (index.php)
+Line 108$jobTitle: y (index.php)
+Line 111$jobDescription: y(index.php)
+Line 114$jobDetails: y(index.php)
+Line 117$jobDate:  (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: y,y,y,pending,28
+************** Start Log For Day : '2022-06-07 10:27:26am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: y,y,y,pending,28
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue[]
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: zzz (index.php)
+Line 111$jobDescription: yy(index.php)
+Line 114$jobDetails: x(index.php)
+Line 117$jobDate:  (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: zzz
+************** Start Log For Day : '2022-06-07 10:36:42am'**********
+sql$ INSERT INTO jobss(jobTitle)
+							VALUES (:ph_jobTitle)
+params in function: zzz
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: a (index.php)
+Line 111$jobDescription: b(index.php)
+Line 114$jobDetails: c(index.php)
+Line 117$jobDate:  (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: a ,b ,c ,pending ,27
+************** Start Log For Day : '2022-06-07 10:42:11am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: a,b,c,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: a (index.php)
+Line 111$jobDescription: b(index.php)
+Line 114$jobDetails: c(index.php)
+Line 117$jobDate:  (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: a ,b ,c ,pending ,27
+************** Start Log For Day : '2022-06-07 10:44:26am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: a,b,c,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: aaaaaaaaaa (index.php)
+Line 111$jobDescription: bbbbbbbbb(index.php)
+Line 114$jobDetails: ccccccccccc(index.php)
+Line 117$jobDate:  (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: aaaaaaaaaa ,bbbbbbbbb ,ccccccccccc ,pending ,27
+************** Start Log For Day : '2022-06-07 10:46:30am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: aaaaaaaaaa,bbbbbbbbb,ccccccccccc,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:01:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:01:06am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:01:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:01:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:01:06am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:01:06am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:13:45am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: a (index.php)
+Line 112$jobDescription: b(index.php)
+Line 115$jobDetails: c(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: a ,b ,c ,pending ,27
+************** Start Log For Day : '2022-06-07 11:14:02am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: a,b,c,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:14:06am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:16:44am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:16:44am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:16:44am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:16:44am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:16:44am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:16:44am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 28 (index.php)
+Line 109$jobTitle: 1 (index.php)
+Line 112$jobDescription: 2(index.php)
+Line 115$jobDetails: 3(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: 1 ,2 ,3 ,pending ,28
+************** Start Log For Day : '2022-06-07 11:19:48am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: 1,2,3,pending,28
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:19:55am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 28 (index.php)
+Line 109$jobTitle: aa (index.php)
+Line 112$jobDescription: bb(index.php)
+Line 115$jobDetails: cc(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: aa ,bb ,cc ,pending ,28
+************** Start Log For Day : '2022-06-07 11:23:32am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: aa,bb,cc,pending,28
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:23:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 5 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:23:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:23:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 5 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:23:37am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 5 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:23:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:23:37am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: aaaaaaaaaaa (index.php)
+Line 112$jobDescription: bbbbbbbbb(index.php)
+Line 115$jobDetails: cccccccccccccccc(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: aaaaaaaaaaa ,bbbbbbbbb ,cccccccccccccccc ,pending ,27
+************** Start Log For Day : '2022-06-07 11:23:58am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: aaaaaaaaaaa,bbbbbbbbb,cccccccccccccccc,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 6 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:24:39am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 28 (index.php)
+Line 109$jobTitle: 1111111111111 (index.php)
+Line 112$jobDescription: 222222222222(index.php)
+Line 115$jobDetails: 3333333333333(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: 1111111111111 ,222222222222 ,3333333333333 ,pending ,28
+************** Start Log For Day : '2022-06-07 11:24:52am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: 1111111111111,222222222222,3333333333333,pending,28
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:27:31am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: zzzzz (index.php)
+Line 111$jobDescription: yyyyyyyy(index.php)
+Line 114$jobDetails: xxxxxxxxxxx(index.php)
+Line 117$jobDate: DATE 2022-06-07 (index.php)
+Line 120$jobStatus:  (index.php)
+params before function: zzzzz ,yyyyyyyy ,xxxxxxxxxxx , ,27
+************** Start Log For Day : '2022-06-07 11:27:52am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: zzzzz,yyyyyyyy,xxxxxxxxxxx,,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:31:20am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 106$compID: 27 (index.php)
+Line 108$jobTitle: nu dan (index.php)
+Line 111$jobDescription: beste(index.php)
+Line 114$jobDetails: details(index.php)
+Line 117$jobDate: DATE 2022-06-07 (index.php)
+Line 120$jobStatus:  (index.php)
+params before function: nu dan ,beste ,details ,DATE 2022-06-07 , ,27
+************** Start Log For Day : '2022-06-07 11:31:55am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: nu dan,beste,details,DATE 2022-06-07,,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:33:50am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:35:09am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:35:09am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:35:09am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:35:09am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:35:09am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:35:09am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 106$compID: 28 (index.php)
+Line 108$jobTitle: 11111111111111111111111 (index.php)
+Line 111$jobDescription: 22222222222222222222222(index.php)
+Line 114$jobDetails: 3333333333333333333333333(index.php)
+Line 117$jobDate: DATE 2022-06-07 (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: 11111111111111111111111 ,22222222222222222222222 ,3333333333333333333333333 ,DATE 2022-06-07 ,pending ,28
+************** Start Log For Day : '2022-06-07 11:35:30am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: 11111111111111111111111,22222222222222222222222,3333333333333333333333333,DATE 2022-06-07,pending,28
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 11:46:23am'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 106$compID: 28 (index.php)
+Line 108$jobTitle: nog een keer (index.php)
+Line 111$jobDescription: keertje(index.php)
+Line 114$jobDetails: ok(index.php)
+Line 117$jobDate: DATE &quot;2022-06-07&quot; (index.php)
+Line 120$jobStatus: pending (index.php)
+params before function: nog een keer ,keertje ,ok ,DATE &quot;2022-06-07&quot; ,pending ,28
+************** Start Log For Day : '2022-06-07 11:46:43am'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: nog een keer,keertje,ok,DATE &quot;2022-06-07&quot;,pending,28
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+Line 107$compID: 28 (index.php)
+Line 109$jobTitle: nu dan (index.php)
+Line 112$jobDescription: 123(index.php)
+Line 115$jobDetails: huppake(index.php)
+Line 118$jobDate: DATA " DATE &quot;2022-06-07&quot; "  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: nu dan ,123 ,huppake ,DATA " DATE &quot;2022-06-07&quot; "  ,pending ,28
+************** Start Log For Day : '2022-06-07 12:00:39pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: nu dan,123,huppake,DATA " DATE &quot;2022-06-07&quot; " ,pending,28
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:02:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: eeeeeee (index.php)
+Line 112$jobDescription: fffffffff(index.php)
+Line 115$jobDetails: ggggggggg(index.php)
+Line 118$jobDate: DATA " 2022-06-07 "  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: eeeeeee ,fffffffff ,ggggggggg ,DATA " 2022-06-07 "  ,pending ,27
+************** Start Log For Day : '2022-06-07 12:02:21pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: eeeeeee,fffffffff,ggggggggg,DATA " 2022-06-07 " ,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: nu (index.php)
+Line 112$jobDescription: nu(index.php)
+Line 115$jobDetails: nu(index.php)
+Line 118$jobDate: DATA " 2022-06-07 "  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: nu ,nu ,nu ,DATA " 2022-06-07 "  ,pending ,27
+************** Start Log For Day : '2022-06-07 12:03:24pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: nu,nu,nu,DATA " 2022-06-07 " ,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 7 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:04:30pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: a (index.php)
+Line 112$jobDescription: b(index.php)
+Line 115$jobDetails: c(index.php)
+Line 118$jobDate: DATE " 2022-06-07 "  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: a ,b ,c ,DATE " 2022-06-07 "  ,pending ,27
+************** Start Log For Day : '2022-06-07 12:04:43pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: a,b,c,DATE " 2022-06-07 " ,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: aaaaaaaaa (index.php)
+Line 112$jobDescription: bbbbbbbbb(index.php)
+Line 115$jobDetails: ccccccccccc(index.php)
+Line 118$jobDate: DATE \'2022-06-07\'  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: aaaaaaaaa ,bbbbbbbbb ,ccccccccccc ,DATE \'2022-06-07\'  ,pending ,27
+************** Start Log For Day : '2022-06-07 12:06:33pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: aaaaaaaaa,bbbbbbbbb,ccccccccccc,DATE \'2022-06-07\' ,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: e (index.php)
+Line 112$jobDescription: f(index.php)
+Line 115$jobDetails: g(index.php)
+Line 118$jobDate: DATE "2022-06-07"  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: e ,f ,g ,DATE "2022-06-07"  ,pending ,27
+************** Start Log For Day : '2022-06-07 12:09:49pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: e,f,g,DATE "2022-06-07" ,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:16:54pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 30 (index.php)
+Line 109$jobTitle: q (index.php)
+Line 112$jobDescription: w(index.php)
+Line 115$jobDetails: e(index.php)
+Line 118$jobDate: DATE "2022-06-07" (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: q ,w ,e ,DATE "2022-06-07" ,pending ,30
+************** Start Log For Day : '2022-06-07 12:17:14pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: q,w,e,DATE "2022-06-07",pending,30
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 9 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:19:17pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: 3 (index.php)
+Line 112$jobDescription: 2(index.php)
+Line 115$jobDetails: 1(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: 3 ,2 ,1 , ,pending ,27
+************** Start Log For Day : '2022-06-07 12:19:28pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+							VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)
+params in function: 3,2,1,,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:42:15pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:16pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: 1 (index.php)
+Line 112$jobDescription: 2(index.php)
+Line 115$jobDetails: 3(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: 1 ,2 ,3 ,pending ,27
+************** Start Log For Day : '2022-06-07 12:43:25pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+				// 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: 1,2,3,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 0 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:43:28pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:06pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 28 (index.php)
+Line 109$jobTitle: aaaaaaaaaaa (index.php)
+Line 112$jobDescription: bbbbbbbbbbb(index.php)
+Line 115$jobDetails: ccccccccccccc(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: aaaaaaaaaaa ,bbbbbbbbbbb ,ccccccccccccc ,pending ,28
+************** Start Log For Day : '2022-06-07 12:50:34pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+				// 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: aaaaaaaaaaa,bbbbbbbbbbb,ccccccccccccc,pending,28
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 12:50:37pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:07pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:07pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:07pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:07pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:07pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:07pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 107$compID: 27 (index.php)
+Line 109$jobTitle: a (index.php)
+Line 112$jobDescription: b(index.php)
+Line 115$jobDetails: c(index.php)
+Line 118$jobDate:  (index.php)
+Line 121$jobStatus: pending (index.php)
+params before function: a ,b ,c ,pending ,27
+************** Start Log For Day : '2022-06-07 01:02:18pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+				// 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: a,b,c,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 01:02:22pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:22pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:22pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:22pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:22pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:02:22pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 2 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:03:43pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+Line 105$compID: 27 (index.php)
+Line 107$jobTitle: qq (index.php)
+Line 110$jobDescription: ww(index.php)
+Line 113$jobDetails: ee(index.php)
+Line 116$jobStatus: pending (index.php)
+params before function: qq ,ww ,ee ,pending ,27
+************** Start Log For Day : '2022-06-07 01:03:55pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+				// 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: qq,ww,ee,pending,27
+Fehler beim Zugriff auf die Datenbank! Fehler beim Zugriff auf die Datenbank!
+Line 102$rowCount: 0 (db.inc.php)
+retunvalue: []
+Line 105$compID: 27 (index.php)
+Line 107$jobTitle: aaaaaaaaaaa (index.php)
+Line 110$jobDescription: bbbbbbbbbb(index.php)
+Line 113$jobDetails: ccccccccccccc(index.php)
+Line 116$jobStatus: pending (index.php)
+params before function: aaaaaaaaaaa ,bbbbbbbbbb ,ccccccccccccc ,pending ,27
+************** Start Log For Day : '2022-06-07 01:06:36pm'**********
+sql$ INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
+				 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)
+params in function: aaaaaaaaaaa,bbbbbbbbbb,ccccccccccccc,pending,27
+Line 102$rowCount: 1 (db.inc.php)
+retunvalue: []
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM companies
+params in function: 
+Line 102$rowCount: 4 (db.inc.php)
+************** Start Log For Day : '2022-06-07 01:06:38pm'**********
+sql$ SELECT * FROM jobs
+								INNER JOIN companies USING(compID)
+params in function: 
+Line 102$rowCount: 3 (db.inc.php)
