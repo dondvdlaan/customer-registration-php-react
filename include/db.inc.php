@@ -90,7 +90,7 @@ if(DEBUG)			echo "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" 
 					}
 
 					// Schritt 4 DB: Daten weiterverarbeiten
-					$jobs = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+					$records = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
 
 if(DEBUG_V)			echo "Line " . __LINE__ . " (" . basename(__FILE__) . ")";					
 if(DEBUG_V)			print_r($jobs);					
@@ -102,7 +102,7 @@ if(DEBUG_V)			echo "Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__F
 					wh_log("Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__FILE__) . ")");
 
 					// Reply to customer
-					$myJSON = json_encode($jobs);
+					$myJSON = json_encode($records);
 					// echo $myJSON;
 
 					// DB-Verbindung beenden

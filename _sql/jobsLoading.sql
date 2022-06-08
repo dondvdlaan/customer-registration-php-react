@@ -18,6 +18,13 @@ VALUES ('NTT-data', 'approached');
 INSERT INTO `companies` (compName, compStatus) 
 VALUES ('Statista', 'approached');
 
+INSERT INTO `companies` (compName, compStatus) 
+VALUES ('Sopra Steria', 'approached');
+
+INSERT INTO `companies` (compName, compStatus) 
+VALUES ('Nexadus', 'approached');
+
+
 -- INSERT INTO `jobs` (jobDate) 
 -- VALUES (DATE '2022-6-4');
 

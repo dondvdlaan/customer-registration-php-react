@@ -28,24 +28,24 @@ $userID                         = NULL;
 				#********** PROCESS URL PARAMETERS **********#
 
 				#********** PREVIEW GET ARRAY **********#
-if(DEBUG_V)	echo "Line" . __LINE__ . "(" . basename(__FILE__) . ")";					
-if(DEBUG_V)	print_r($_GET);	
+if(DEBUG_V_P)	wh_log("Line" . __LINE__ . " (" . basename(__FILE__) . ")");					
+if(DEBUG_V_P)	wh_log(print_r($_GET));	
 
 				#****************************************#
 
 				// Schritt 1 URL: Prüfen, ob URL-Parameter übergeben wurde
 				if( isset($_GET['action']) ) {
-if(DEBUG)			echo "Line " . __LINE__ . "URL-Parameter 'action' wurde übergeben.(" . basename(__FILE__) . ")";										
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "URL-Parameter 'action' wurde übergeben.(" . basename(__FILE__) . ")");										
 										
 					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
-					$action = cleanString($_GET['action']);
-if(DEBUG_V)		    echo "Line " . __LINE__ . "\$action: $action (" . basename(__FILE__) . ")";
+				$action = cleanString($_GET['action']);
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$action: $action (" . basename(__FILE__) . ")");
 										
 					// Schritt 3 URL: Verzweigung
 										
 					#********** FETCH allJobs **********#
 					if( $action === 'allJobs'){
-if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Auswerten Kategorie... <i>(" . basename(__FILE__) . ")</i></p>\n";
+if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Auswerten allJobs... <i>(" . basename(__FILE__) . ")</i></p>\n";
 					
 					$sql 		= 'SELECT * FROM jobs
 								INNER JOIN companies USING(compID)';
@@ -73,14 +73,35 @@ if(DEBUG_V)		    echo "Line " . __LINE__ . "\$companies : $companies (" . basena
 					// Reply to customer
 					echo $companies;
 
+					#********** FETCH 1 Job per ID **********#
+					}elseif ($action === 'job'){
+
+					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
+					$jobID = cleanString($_GET['jobID']);
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$jobID: $jobID (" . basename(__FILE__) . ")");
+
+					$sql 		= 'SELECT * FROM jobs
+									INNER JOIN companies USING(compID)
+									where jobID = :ph_jobID';
+								
+					$params 	= array('ph_jobID' => $jobID);
+
+					// Retrieve companies table
+					$job = retrieveTable($sql, $params);
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$job : $job (" . basename(__FILE__) . ")");
+
+					// Reply to customer
+					echo $job;
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ .' job: ' .$job ); 
+
 					
 					} // END GET Verzweigung
 				} // END URL PARAMETERS
 
 				#********** PREVIEW POST ARRAY **********#
 
-if(DEBUG_V_P)	echo "Line " . __LINE__ . "(" . basename(__FILE__) . ")";					
-if(DEBUG_V_P)	print_r($_POST);
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " (" . basename(__FILE__) . ")");					
+if(DEBUG_V_P)	wh_log(print_r($_POST));
 
                 #****************************************#
 				
@@ -88,6 +109,8 @@ if(DEBUG_V_P)	print_r($_POST);
 				// if( isset($_POST['newJob']) ) {
 				$request_body = file_get_contents('php://input');
     			$data = json_decode($request_body, true);
+
+				wh_log("POST request: " . $request_body);
 				
 				if( isset($data) ) {
 if(DEBUG)		echo "Line " . __LINE__ . "Formular 'Job' wurde abgeschickt. (" . basename(__FILE__) . ")";										
@@ -101,19 +124,14 @@ if(DEBUG)		echo "Line " . __LINE__ . " Werte auslesen und entschärfen... (" . b
 				$jobDetails			= cleanString( $data['jobDetails'] );
 				$jobStatus			= cleanString( $data['jobStatus'] );
 					
-if(DEBUG_V_P)		echo "Line " . __LINE__ . "\$compID: $compID (" . basename(__FILE__) . ")";
-					wh_log("Line " . __LINE__ . "\$compID: $compID (" . basename(__FILE__) . ")");
-if(DEBUG_V_P)		echo "Line " . __LINE__ . "\$jobTitle: $jobTitle (" . basename(__FILE__) . ")n";
-					wh_log("Line " . __LINE__ . "\$jobTitle: $jobTitle (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$compID: $compID (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobTitle: $jobTitle (" . basename(__FILE__) . ")");
 
-if(DEBUG_V_P)		echo "Line " . __LINE__ . "\$jobDescription: $jobDescription (" . basename(__FILE__) . ")";
-					wh_log("Line " . __LINE__ . "\$jobDescription: $jobDescription(" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobDescription: $jobDescription(" . basename(__FILE__) . ")");
 
-if(DEBUG_V_P)		echo "Line " . __LINE__ . "\$jobDetails: $jobDetails (" . basename(__FILE__) . ")";
-					wh_log("Line " . __LINE__ . "\$jobDetails: $jobDetails(" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobDetails: $jobDetails(" . basename(__FILE__) . ")");
 
-if(DEBUG_V_P)		echo "Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename(__FILE__) . ")";
-					wh_log("Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename(__FILE__) . ")");
 
 
 				#********** Prepare SQL statement **********#
@@ -136,9 +154,8 @@ if(DEBUG_V_P)		echo "Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename(
 
 				// Insert new job
 				$returnValue = retrieveTable($sql, $params);
-if(DEBUG_V_P)	echo "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")";
+if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")");
 				
-				wh_log("retunvalue: " . $returnValue);
 				// // Reply to customer
 				// echo $companies;
 					// } // END POST Verzweigung
