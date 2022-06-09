@@ -47,13 +47,16 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 #******************************************************************************************************#
 /**
 				*
-				*	Retrieves separate tables
+				*	Operations on tables
 				*
 				*	@param [String $tableNmae]			Name of Dtable to be retrieved
 				*	@return Object						Table as objekt
 				*/
-				function retrieveTable($sql, $params) {
+				function retrieveTable($sql, $params, $select=true) {
 				
+				// Constans and Variables	
+				$records = NULL;
+
 					$log_time = date('Y-m-d h:i:sa');
 				wh_log("************** Start Log For Day : '" . $log_time . "'**********");
 					
@@ -90,7 +93,7 @@ if(DEBUG)			echo "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" 
 					}
 
 					// Schritt 4 DB: Daten weiterverarbeiten
-					$records = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+					if($select) $records = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
 
 if(DEBUG_V)			echo "Line " . __LINE__ . " (" . basename(__FILE__) . ")";					
 if(DEBUG_V)			print_r($jobs);					

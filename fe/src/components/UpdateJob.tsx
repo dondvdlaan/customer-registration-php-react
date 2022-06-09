@@ -15,6 +15,7 @@ if(!job){return (<p>Lade...</p>)}
 
     return(
         <JobForm
+        jobID={job[0].jobID}
         jobTitle = {job[0].jobTitle}
         jobDescription={job[0].jobDescription}
         jobDetails={job[0].jobDetails}

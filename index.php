@@ -16,6 +16,7 @@ require_once('./include/log.php');
 #******************************************#
 #********** INITIALIZE VARIABLES **********#
 #******************************************#
+$data							= NULL;
 
 #********** LOGIN CONFIGURATION **********#
 $errorLogin 					= NULL;
@@ -30,7 +31,7 @@ $userID                         = NULL;
 				#********** PREVIEW GET ARRAY **********#
 if(DEBUG_V_P)	wh_log("Line" . __LINE__ . " (" . basename(__FILE__) . ")");					
 if(DEBUG_V_P)	wh_log(print_r($_GET));	
-
+				// wh_log(print_r($_GET));
 				#****************************************#
 
 				// Schritt 1 URL: Prüfen, ob URL-Parameter übergeben wurde
@@ -86,7 +87,7 @@ if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$jobID: $jobID (" . basename(__FILE
 								
 					$params 	= array('ph_jobID' => $jobID);
 
-					// Retrieve companies table
+					// Retrieve job
 					$job = retrieveTable($sql, $params);
 if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$job : $job (" . basename(__FILE__) . ")");
 
@@ -101,20 +102,19 @@ if(DEBUG_V_P)		wh_log("Line " . __LINE__ .' job: ' .$job );
 				#********** PREVIEW POST ARRAY **********#
 
 if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " (" . basename(__FILE__) . ")");					
-if(DEBUG_V_P)	wh_log(print_r($_POST));
-
-                #****************************************#
+if(DEBUG_V_P)	wh_log($_POST);
+			    #****************************************#
 				
 				// Schritt 1 FORM: Prüfen, ob Formular abgeschickt wurde
-				// if( isset($_POST['newJob']) ) {
 				$request_body = file_get_contents('php://input');
+
     			$data = json_decode($request_body, true);
 
-				wh_log("POST request: " . $request_body);
-				
+			
 				if( isset($data) ) {
-if(DEBUG)		echo "Line " . __LINE__ . "Formular 'Job' wurde abgeschickt. (" . basename(__FILE__) . ")";										
+				wh_log( "Line " . __LINE__ . "Formular 'newJob' wurde abgeschickt. (" . basename(__FILE__) . ")");										
 
+				
 				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
 if(DEBUG)		echo "Line " . __LINE__ . " Werte auslesen und entschärfen... (" . basename(__FILE__) . ")";
 					
@@ -123,7 +123,8 @@ if(DEBUG)		echo "Line " . __LINE__ . " Werte auslesen und entschärfen... (" . b
 				$jobDescription		= cleanString( $data['jobDescription'] );
 				$jobDetails			= cleanString( $data['jobDetails'] );
 				$jobStatus			= cleanString( $data['jobStatus'] );
-					
+				$isEdit 			= cleanString( $data['isEdit'] );
+
 if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$compID: $compID (" . basename(__FILE__) . ")");
 if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobTitle: $jobTitle (" . basename(__FILE__) . ")");
 
@@ -133,6 +134,12 @@ if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobDetails: $jobDetails(" . basenam
 
 if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename(__FILE__) . ")");
 
+					// Schritt 3 URL: Verzweigung
+										
+					#********** INSERT newJob **********#
+					if(!$isEdit) {
+					wh_log("isEdit false");
+				
 
 				#********** Prepare SQL statement **********#
 				// if ($formBlog === 'newJob'){
@@ -158,6 +165,40 @@ if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . ba
 				
 				// // Reply to customer
 				// echo $companies;
-					// } // END POST Verzweigung
+
+				#********** UPDATE Job **********#
+				}elseif($isEdit) {
+					wh_log("isEdit true");
+
+				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
+
+				$jobID 			= cleanString( $data['jobID'] );
+				
+				#********** Prepare SQL statement **********#
+
+				// $sql 		= 'INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobDate, jobStatus, compID)
+				// 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobDate, :ph_jobStatus, :ph_compID)';
+				
+				$sql 		= 'UPDATE jobs
+							SET jobTitle=:ph_jobTitle , jobDescription=:ph_jobDescription, jobDetails=:ph_jobDetails, jobStatus=:ph_jobStatus, compID=:ph_compID
+				 			WHERE jobID = :ph_jobID';
+				
+				$params 	= array('ph_jobID' => $jobID,
+									'ph_jobTitle' => $jobTitle,
+									'ph_jobDescription' => $jobDescription,
+									'ph_jobDetails' =>  $jobDetails,
+									'ph_jobStatus' => $jobStatus,
+									'ph_compID' =>  $compID
+									);
+
+				wh_log("params before function: " . implode(" ,", $params));
+
+				// Update job
+				$returnValue = retrieveTable($sql, $params, $select = false);
+if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")");
+				
+				// // Reply to customer
+				// echo $companies;
+					} // END POST Verzweigung
 				}	// END POST ARRAY 			
 ?>

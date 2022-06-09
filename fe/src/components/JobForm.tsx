@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react"
+import {Method} from "axios";
+import React, { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { Api, useApi } from "../shared/API";
 import { CLOSED, PENDING, WON } from "../shared/Constants";
 import { Company } from "../types/Company";
-import { Job, JobWCompID } from "../types/Job";
-import { AppContext } from "./AppContext";
+import { Job } from "../types/Job";
 
 interface Props extends Job{
     company: Company,
@@ -35,26 +35,44 @@ export const JobForm = (props: Props) =>{
     //     jobSatus: "pending",
     //     compID: compID
     // })
-     const jobData = {
+     const jobDataNew = {
+        isEdit: props.isEdit,
         jobTitle,
         jobDescription,
         jobDetails,
         jobStatus,
         compID
-         }
+        }
+    const jobDataUpdate = {
+        isEdit: props.isEdit,
+        jobID: props.jobID,
+        jobTitle,
+        jobDescription,
+        jobDetails,
+        jobStatus,
+        compID
+        }
         
     
     console.log('New/updated Company:', compID);
+    console.log('JobID:', props.jobID);
     console.log('New/updated jobTitle:', jobTitle);
-    console.log('New/updated job:', jobData);
+    console.log('New job:', jobDataNew);
+    console.log('New job:', jobDataUpdate);
+
 
 
     // Event handling
     const onFormSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
         console.log('Form submitted');
-        
-        Api("post","newJob", ()=>navigate('/allJobs'), jobData)
+        const [method, path, jobData]:[Method, string, {}] = props.isEdit
+        ? ["post", `?action=updateJob`, jobDataUpdate]
+        : ["post", `?action=newJob`, jobDataNew];
+
+        Api(method,path, ()=>navigate('/allJobs'), jobData)
+        // Api("post","newJob", ()=>navigate('/allJobs'), jobData)
+
     }
 
     return(
