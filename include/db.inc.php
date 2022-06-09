@@ -57,7 +57,7 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 				// Constans and Variables	
 				$records = NULL;
 
-					$log_time = date('Y-m-d h:i:sa');
+				$log_time = date('Y-m-d h:i:sa');
 				wh_log("************** Start Log For Day : '" . $log_time . "'**********");
 					
 if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename(__FILE__) . ")";
@@ -73,11 +73,6 @@ if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename
 
 					#********** SELECT TABLES **********#
 if(DEBUG)		echo "Line " . __LINE__ . "Lese Nr. Jos aus DB aus... <i>(" . basename(__FILE__) . ")";
-
-					// $sql 		= 'SELECT * FROM jobs
-					// 				INNER JOIN companies USING(compID)';
-							
-					// $params 	= array();
 
 					// Schritt 2 DB: SQL-Statement vorbereiten
 					$PDOStatement = $PDO->prepare($sql);

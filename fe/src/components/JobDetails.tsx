@@ -1,7 +1,7 @@
 import {  useNavigate, useParams } from 'react-router-dom';
-import { useApi } from '../shared/API';
+import { Api, useApi } from '../shared/API';
 import { Job } from '../types/Job';
-import { UpdateJob } from './UpdateJob';
+import {Method} from "axios";
 
 
 export const JobDetails = () => {
@@ -20,6 +20,13 @@ export const JobDetails = () => {
     const onUpdate = ()=> {
     navigate(`/UpdateJob/${jobID}`);
     }
+
+    const onDelete = ()=> {
+      const method: Method = "GET";
+      const path: string = `?action=delete&jobID=${jobID}`;
+
+      Api(method,path, ()=>navigate('/allJobs'), {})
+      }
 
     return (
         <>
@@ -71,7 +78,7 @@ export const JobDetails = () => {
   <div className="row">
     <div className="col">
     <button type="button" onClick={onUpdate} className="btn btn-primary btn-sm">Update</button>
-    <button type="button" className="btn btn-warning btn-sm">Delete</button>
+    <button type="button" onClick={onDelete} className="btn btn-warning btn-sm">Delete</button>
     
     </div>
     <div className="col">
