@@ -3,9 +3,10 @@
 #Customer data
 jobsLoading*
 backup*
+log*
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
