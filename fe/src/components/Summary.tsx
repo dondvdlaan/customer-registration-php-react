@@ -1,7 +1,7 @@
 import { useApi } from "../shared/API";
 import { APPROACHED, REGISTERED } from "../shared/Constants";
 import { Company } from "../types/Company";
-import { Job } from "../types/Job";
+import { NewJob } from "../types/Job";
 
 
 // interface Props {
@@ -11,7 +11,7 @@ import { Job } from "../types/Job";
 export const Summary= () =>{
 
 // Hooks and costumHooks
-const [jobs, setJobs] = useApi<Job[]>("?action=allJobs");
+const [jobs, setJobs] = useApi<NewJob[]>("?action=allJobs");
 const [companies, setCompanies] = useApi<Company[]>("?action=allCompanies");
 
 if(!jobs || !companies){

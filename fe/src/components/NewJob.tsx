@@ -8,6 +8,10 @@ export const NewJob = () =>{
 
     return(
         <JobForm
+        jobID=""
+        compID=""
+        jobDate=""
+        compName=""
         jobTitle = ""
         jobDescription=""
         jobDetails=""

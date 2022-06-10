@@ -7,18 +7,19 @@ import { UpdateJob } from "./UpdateJob";
 
 
 import { Summary } from "./Summary";
+import { Companies } from "./Companies";
 
 export default function Routing(): ReactElement {
   return (
     <Routes>
       <Route path="/summary" element={<Summary />} />
       <Route path="/allJobs" element={<AllJobs />} />
+      <Route path="/companies" element={<Companies />} />
+
       <Route path="/newJob" element={<NewJob />} />
       <Route path="/updateJob/:jobID" element={<UpdateJob />} />
 
-
       <Route path="/details/:jobID" element={<JobDetails />} />
-
 
       <Route path="/" element={<Navigate to="/summary" />} />
     </Routes>

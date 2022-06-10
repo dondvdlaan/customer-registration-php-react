@@ -9,18 +9,16 @@ interface Won{
 }
 export type JobStatus = Pending | Closed | Won;
 
-export interface JobWCompID extends Job{
+export interface Job extends NewJob{
 compID: string;
+jobID: string;    
+jobDate: string;
+compName: string;
 }
 
-export interface Job{
-jobID: string;    
+export interface NewJob{
 jobTitle : string;
 jobDescription: string;
 jobDetails: string;
-jobDate: string;
 jobStatus: string;
-compName: string;
-compID: string;
-
 }

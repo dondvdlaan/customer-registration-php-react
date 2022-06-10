@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useApi } from "../shared/API";
-import { Job } from "../types/Job"
+import { Job, NewJob } from "../types/Job"
 import { JobForm } from "./JobForm"
 
 
@@ -22,7 +22,7 @@ if(!job){return (<p>Lade...</p>)}
         jobStatus={job[0].jobStatus}
         compID={job[0].compID}
         compName={job[0].compName}
-
+        jobDate={job[0].jobDate}
 
         isEdit= {true}
         />

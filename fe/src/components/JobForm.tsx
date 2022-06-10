@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { Api, useApi } from "../shared/API";
 import { CLOSED, PENDING, WON } from "../shared/Constants";
 import { Company } from "../types/Company";
-import { Job } from "../types/Job";
+import { NewJob, Job } from "../types/Job";
 
 interface Props extends Job{
-    company: Company,
     isEdit: boolean
 }
 

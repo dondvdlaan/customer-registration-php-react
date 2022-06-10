@@ -4,7 +4,7 @@ import Routing from './Routing';
 import { Summary } from './Summary';
 import Menu from './Menu';
 import { useApi } from '../shared/API';
-import { Job } from '../types/Job';
+import { NewJob } from '../types/Job';
 import { Company } from '../types/Company';
 import { AppContext} from './AppContext';
 

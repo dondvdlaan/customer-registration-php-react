@@ -1,27 +1,26 @@
 import { ReactElement, ReactNode } from "react"
-import { Job } from "../types/Job"
+import { NewJob } from "../types/Job"
 
 interface Props{
-    jobs:Job[],
     page: number,
     totalPages: number,
-    maxJobsPerPage: number
+    maxRowsPerPage: number
     onSetPage(page:number): void,
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export const Pagination = (props:Props) =>{
 
-    // Constants and vairiables
+    // Constants and variables
     let pageNrs = [];
     const maxPagesNrDisplayed = 3;
     let pageNr = 0;
     let previous = 0;
     let next = props.page;
 
-
+    // Define previous button
     if (props.page > 0) previous = props.page -1;
-
+    // Define next button   
     if (props.page < props.totalPages -1) next++;
 
 

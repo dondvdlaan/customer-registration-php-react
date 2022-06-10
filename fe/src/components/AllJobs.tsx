@@ -1,35 +1,33 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApi } from "../shared/API";
-import { Job } from "../types/Job";
-import { AppContext } from "./AppContext";
+import { Job, NewJob } from "../types/Job";
 import { Pagination } from "./Pagination";
 
 
 export const AllJobs = () => {
   
-  // Hooks and costumHooks
+  // Constants and variables
   const [page, setPage] = useState(0);
   const [jobs, setJobs] = useApi<Job[]>("?action=allJobs");  
   const navigate = useNavigate();
-  const maxJobsPerPage = 3;
-  
+  const maxRowsPerPage = 3;
   
   if(!jobs){
     return (<p>Lade...</p>)
   }
-  // Event handling
-  const onSetPage= (page:number) =>setPage(page);
-
-  const totalPages = jobs.length / maxJobsPerPage;
-
-  const jobsOnThisPage = jobs.slice(page*maxJobsPerPage,(page +1)*maxJobsPerPage)
-
+  
   // Event handling
   const onGoToDetail = (job: Job) =>{
     navigate(`/details/${job.jobID}`)
   }
  
+  const onSetPage= (page:number) =>setPage(page);
+
+  // Pagination
+  const totalPages = jobs.length / maxRowsPerPage;
+  const jobsOnThisPage = jobs.slice(page*maxRowsPerPage,(page +1)*maxRowsPerPage)
+
     
     return(
       <>
@@ -61,10 +59,9 @@ export const AllJobs = () => {
   </tbody>
 </table>
   <Pagination 
-  jobs       = {jobs} 
   page       = {page} 
   totalPages = {totalPages}
-  maxJobsPerPage ={maxJobsPerPage}
+  maxRowsPerPage ={maxRowsPerPage}
   onSetPage = {onSetPage}
    />
       </>

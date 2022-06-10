@@ -8,6 +8,7 @@ interface Registered{
 export type CompStatus = Approached | Registered;  
 
 export interface Company{
+compID: string
 compName : string;
-compStatus: CompStatus;
+compStatus: string;
 }
