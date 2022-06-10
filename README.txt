@@ -13,3 +13,5 @@ The PHP files are located in the root of the application. REACT is placed in fe 
 PHP is not designed to handle Restfull API's (POST, GET, PUT,etc) and therefor a work-around
 has been implemented. For the Insert and Update operations, the command 
 "file_get_contents('php://input')" has been used.
+
+Client side Pagination have been used.
