@@ -10,5 +10,6 @@ export type CompStatus = Approached | Registered;
 export interface Company{
 compID: string
 compName : string;
+compType : string;
 compStatus: string;
 }

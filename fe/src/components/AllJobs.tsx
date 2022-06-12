@@ -59,7 +59,7 @@ export const AllJobs = () => {
   </tbody>
 </table>
   <Pagination 
-  page       = {page} 
+  currentPage       = {page} 
   totalPages = {totalPages}
   maxRowsPerPage ={maxRowsPerPage}
   onSetPage = {onSetPage}

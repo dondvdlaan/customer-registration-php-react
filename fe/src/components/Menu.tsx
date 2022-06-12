@@ -19,6 +19,7 @@ const navLinkClassname = ({ isActive }: { isActive: boolean }) =>
           <NavLink className="nav-link" to="/allJobs"  >All Jobs </NavLink >  
           <NavLink className="nav-link" to="/companies"  >Companies </NavLink >  
           <NavLink className="nav-link" to="/newJob"  >New Job </NavLink >  
+          <NavLink className="nav-link" to="/newCompany"  >Add Company </NavLink >  
 
         </ul>                                      
       </nav>

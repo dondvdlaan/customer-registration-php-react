@@ -8,6 +8,7 @@ import { UpdateJob } from "./UpdateJob";
 
 import { Summary } from "./Summary";
 import { Companies } from "./Companies";
+import { AddCompany } from "./AddCompany";
 
 export default function Routing(): ReactElement {
   return (
@@ -15,6 +16,9 @@ export default function Routing(): ReactElement {
       <Route path="/summary" element={<Summary />} />
       <Route path="/allJobs" element={<AllJobs />} />
       <Route path="/companies" element={<Companies />} />
+
+      <Route path="/newCompany" element={<AddCompany />} />
+
 
       <Route path="/newJob" element={<NewJob />} />
       <Route path="/updateJob/:jobID" element={<UpdateJob />} />

@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from "react"
 import { NewJob } from "../types/Job"
 
 interface Props{
-    page: number,
+    currentPage: number,
     totalPages: number,
     maxRowsPerPage: number
     onSetPage(page:number): void,
@@ -13,24 +13,28 @@ export const Pagination = (props:Props) =>{
 
     // Constants and variables
     let pageNrs = [];
-    const maxPagesNrDisplayed = 3;
+    const maxNrOfPagesDisplayed = 3;
     let pageNr = 0;
     let previous = 0;
-    let next = props.page;
+    let next = props.currentPage;
+    let activePage = "page-item";
 
     // Define previous button
-    if (props.page > 0) previous = props.page -1;
+    if (props.currentPage > 0) previous = props.currentPage -1;
     // Define next button   
-    if (props.page < props.totalPages -1) next++;
+    if (props.currentPage < props.totalPages -1) next++;
 
 
-    for (let i = 0; i < Math.min(props.totalPages, maxPagesNrDisplayed); i++) {
+    for (let i = 0; i < Math.min(((props.totalPages -1) - props.currentPage), maxNrOfPagesDisplayed); i++) {
         
-        if (props.totalPages > maxPagesNrDisplayed) pageNr = props.page;
+        // After displaying the first pages, we use currentPage
+        if (props.totalPages > maxNrOfPagesDisplayed) pageNr = props.currentPage;
         
         let pageNrDisplayed = pageNr + 1 + i;
+        // Highlight currentPage    
+        activePage = ((props.currentPage + 1) === pageNrDisplayed)? "page-item active": "page-item";
 
-    pageNrs.push( <li key={i} className="page-item"><button onClick={()=>props.onSetPage(pageNr + i)} className="page-link" >{pageNrDisplayed}</button></li>)
+    pageNrs.push( <li key={i} className={activePage}><button onClick={()=>props.onSetPage(pageNr + i)} className="page-link" >{pageNrDisplayed}</button></li>)
     }
 
     return(

@@ -20,6 +20,7 @@ export const JobForm = (props: Props) =>{
     const navigate = useNavigate();
     const [companies, setCompanies] = useApi<Company[]>("?action=allCompanies");
 
+    const postSelector = "Job";
     
 
 
@@ -35,6 +36,7 @@ export const JobForm = (props: Props) =>{
     //     compID: compID
     // })
      const jobDataNew = {
+        postSelector,
         isEdit: props.isEdit,
         jobTitle,
         jobDescription,
@@ -43,6 +45,7 @@ export const JobForm = (props: Props) =>{
         compID
         }
     const jobDataUpdate = {
+        postSelector,
         isEdit: props.isEdit,
         jobID: props.jobID,
         jobTitle,

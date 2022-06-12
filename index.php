@@ -35,11 +35,11 @@ if(DEBUG_V_P)	wh_log(print_r($_GET));
 
 				// Schritt 1 URL: Prüfen, ob URL-Parameter übergeben wurde
 				if( isset($_GET['action']) ) {
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "URL-Parameter 'action' wurde übergeben.(" . basename(__FILE__) . ")");										
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " URL-Parameter 'action' wurde übergeben.(" . basename(__FILE__) . ")");										
 										
 					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
 				$action = cleanString($_GET['action']);
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$action: $action (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$action: $action (" . basename(__FILE__) . ")");
 										
 					// Schritt 3 URL: Verzweigung
 										
@@ -80,7 +80,7 @@ if(DEBUG_V)		    echo "Line " . __LINE__ . "\$companies : $companies (" . basena
 
 					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
 					$jobID = cleanString($_GET['jobID']);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$jobID: $jobID (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
 					$sql 		= 'SELECT * FROM jobs
@@ -91,7 +91,7 @@ if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$jobID: $jobID (" . basename(__FILE
 
 					// Retrieve job
 					$job = retrieveTable($sql, $params);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$job : $job (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
 
 					// Reply to customer
 					echo $job;
@@ -103,7 +103,7 @@ if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Delete job
 
 					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
 					$jobID = cleanString($_GET['jobID']);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$jobID: $jobID (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
 					$sql 		= 'DELETE FROM jobs
@@ -113,14 +113,36 @@ if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$jobID: $jobID (" . basename(__FILE
 
 					// Retrieve job
 					$job = retrieveTable($sql, $params, $select=false);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . "\$job : $job (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
 
 					// Reply to customer
 					// echo $job; not used
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ .' job: ' .$job );	
+// if(DEBUG_V_P)		wh_log("Line " . __LINE__ .' job: ' .$job );	
 					
+					#********** DELETE Company per ID **********#
+					}elseif ($action === 'deleteCompany'){
+					wh_log( "Line " . __LINE__ . " Delete company <i>(" . basename(__FILE__) . ")</i></p>\n");
+	
+						// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
+						$compID = cleanString($_GET['compID']);
+						wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
+	
+						// Prepare SQL statement
+						$sql 		= 'DELETE FROM companies
+										where compID = :ph_compID';
+					
+						$params 	= array('ph_compID' => $compID);
+	
+						// Retrieve job
+						$comp = retrieveTable($sql, $params, $select=false);
+						wh_log("Line " . __LINE__ . " \$comp : $comp (" . basename(__FILE__) . ")");
+	
+						// Reply to customer
+						// echo $job; not used
+	
 					} // END GET Verzweigung
 				} // END URL PARAMETERS
+
 
 				#********** PREVIEW POST ARRAY **********#
 
@@ -130,14 +152,28 @@ if(DEBUG_V_P)	wh_log($_POST);
 				
 				// Instead of POST, file_get_contents is used for Insert and Update
 				$request_body = file_get_contents('php://input');
-
     			$data = json_decode($request_body, true);
 
-			
+				// Check if POST data arrived
 				if( isset($data) ) {
 				wh_log( "Line " . __LINE__ . "POST functions have been received (" . basename(__FILE__) . ")");										
 
+				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
+				$postSelector 			= cleanString( $data['postSelector'] );
+				wh_log("Line " . __LINE__ . "\$postSelector: $postSelector (" . basename(__FILE__) . ")");
+
+				// Schritt : POST Verzweigung
+										
+				#********** UPDATE / ADD Company **********#
+				if($postSelector === 'Company') {
+				wh_log( "Line " . __LINE__ . "POST $postSelector  has been received (" . basename(__FILE__) . ")");										
 				
+				updateOrInsertCompany($data);
+
+				#********** UPDATE / ADD Job **********#
+				}elseif( $postSelector === 'Job'){
+				wh_log( "Line " . __LINE__ . "POST $postSelector has been received (" . basename(__FILE__) . ")");										
+
 				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
 if(DEBUG)		echo "Line " . __LINE__ . " Werte auslesen und entschärfen... (" . basename(__FILE__) . ")";
 					
@@ -148,14 +184,14 @@ if(DEBUG)		echo "Line " . __LINE__ . " Werte auslesen und entschärfen... (" . b
 				$jobStatus			= cleanString( $data['jobStatus'] );
 				$isEdit 			= cleanString( $data['isEdit'] );
 
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$compID: $compID (" . basename(__FILE__) . ")");
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobTitle: $jobTitle (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobTitle: $jobTitle (" . basename(__FILE__) . ")");
 
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobDescription: $jobDescription(" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobDescription: $jobDescription(" . basename(__FILE__) . ")");
 
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobDetails: $jobDetails(" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobDetails: $jobDetails(" . basename(__FILE__) . ")");
 
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobStatus: $jobStatus (" . basename(__FILE__) . ")");
 
 					// Schritt 3 URL: Verzweigung
 										
@@ -180,7 +216,7 @@ if(DEBUG_V_P)	wh_log("Line " . __LINE__ . "\$jobStatus: $jobStatus (" . basename
 
 				// Insert new job
 				$returnValue = retrieveTable($sql, $params);
-if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . " \$returnValue : $returnValue (" . basename(__FILE__) . ")");
 				
 				// Reply to customer
 				// echo $companies;  -- not used
@@ -211,10 +247,12 @@ if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . ba
 
 				// Update job
 				$returnValue = retrieveTable($sql, $params, $select = false);
-if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")");
+if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . " \$returnValue : $returnValue (" . basename(__FILE__) . ")");
 				
 				// // Reply to customer
 				// echo $companies -- not used
+
+						} // END isEdit Verzweigung
 					} // END POST Verzweigung
 				}	// END POST ARRAY 			
 ?>

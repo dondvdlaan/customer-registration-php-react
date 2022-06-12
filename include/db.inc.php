@@ -49,20 +49,17 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 				*
 				*	Operations on tables
 				*
-				*	@param [String $tableNmae]			Name of Dtable to be retrieved
-				*	@return Object						Table as objekt
+				*	@param [String $sql]			SQL statement
+				*	@param [String $params]			params array
+				* 	@param [String $select]			true=> record(s) retrieval
+				*									false=> Insert/Update/delete
+				*	@return Object					Selection as objekt
 				*/
 				function retrieveTable($sql, $params, $select=true) {
 				
 				// Constans and Variables	
 				$records = NULL;
 
-				$log_time = date('Y-m-d h:i:sa');
-				wh_log("************** Start Log For Day : '" . $log_time . "'**********");
-					
-if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename(__FILE__) . ")";
-
-  
 				wh_log("sql$ " . $sql);
 				wh_log("params in function: " . implode(",", $params));
 
@@ -71,8 +68,8 @@ if(DEBUG_V)			echo " Line " . __LINE__ . "\$tableName : $tableName (" . basename
 					// Schritt 1 DB: DB-Verbindung herstellen
 					$PDO = dbConnect(DB_NAME);
 
-					#********** SELECT TABLES **********#
-if(DEBUG)		echo "Line " . __LINE__ . "Lese Nr. Jos aus DB aus... <i>(" . basename(__FILE__) . ")";
+					#********** DB Operations **********#
+					wh_log( "Line " . __LINE__ . " Operation on DB <i>(" . basename(__FILE__) . ")");
 
 					// Schritt 2 DB: SQL-Statement vorbereiten
 					$PDOStatement = $PDO->prepare($sql);
@@ -81,7 +78,7 @@ if(DEBUG)		echo "Line " . __LINE__ . "Lese Nr. Jos aus DB aus... <i>(" . basenam
 					try {	
 					$PDOStatement->execute($params);						
 					} catch(PDOException $error) {
-if(DEBUG)			echo "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" . basename(__FILE__) . ")";										
+					wh_log( "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" . basename(__FILE__) . ")");										
 					$dbError = 'Fehler beim Zugriff auf die Datenbank!';
 					
 					wh_log("$dbError " . $dbError);
@@ -90,14 +87,9 @@ if(DEBUG)			echo "Line " . __LINE__ . ": FEHLER: " . $error->GetMessage() . "(" 
 					// Schritt 4 DB: Daten weiterverarbeiten
 					if($select) $records = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
 
-if(DEBUG_V)			echo "Line " . __LINE__ . " (" . basename(__FILE__) . ")";					
-if(DEBUG_V)			print_r($jobs);					
-
 					// Zählen, wieviele Datensätze zurückgeliefert wurden
 					$rowCount = $PDOStatement->rowCount();
-if(DEBUG_V)			echo "Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__FILE__) . ")";
-					
-					wh_log("Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$rowCount: $rowCount (" . basename(__FILE__) . ")");
 
 					// Reply to customer
 					$myJSON = json_encode($records);
@@ -113,4 +105,87 @@ if(DEBUG_V)			echo "Line " . __LINE__ . "\$rowCount: $rowCount (" . basename(__F
 				
 #******************************************************************************************************#
 
+				/*
+				*	Update / Insert company
+				*
+				*	@param [String $data]			Company Data 
+				*	@return none					Table as objekt
+				*/
+				function updateOrInsertCompany($data){
+				wh_log("Line " . __LINE__ . " function updateOrInsertCompany (" . basename(__FILE__) . ")");
+
+				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
+				wh_log("Line " . __LINE__ . " Werte auslesen und entschärfen... (" . basename(__FILE__) . ")");
+					
+				$compID 			= cleanString( $data['compID'] );
+				$compName 			= cleanString( $data['compName'] );
+				$compStatus			= cleanString( $data['compStatus'] );
+				$compType			= cleanString( $data['compType'] );
+				$isEdit 			= cleanString( $data['isEdit'] );
+
+				wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
+				wh_log("Line " . __LINE__ . " \$compName: $compName (" . basename(__FILE__) . ")");
+				wh_log("Line " . __LINE__ . " \$compType: $compType (" . basename(__FILE__) . ")");
+				wh_log("Line " . __LINE__ . " \$compStatus: $compStatus (" . basename(__FILE__) . ")");
+
+					// Schritt 3 URL: Verzweigung
+										
+					#********** INSERT newCompany **********#
+					if(!$isEdit) {
+					wh_log("isEdit false");
+				
+
+				#********** Prepare SQL statement **********#
+				
+				$sql 		= 'INSERT INTO companies(compName, compStatus, compType)
+				 				VALUES (:ph_compName, :ph_compStatus, :ph_compType)';
+				
+				$params 	= array('ph_compName' => $compName,
+									'ph_compType' => $compType,
+									'ph_compStatus' => $compStatus,
+									);
+
+				wh_log("params before function: " . implode(" ,", $params));
+
+				// Insert new Company
+				$returnValue = retrieveTable($sql, $params);
+if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")");
+				
+				
+				// Reply to customer
+				// echo $companies;  -- not used
+
+				#********** UPDATE Job **********#
+				}elseif($isEdit) {
+					wh_log("isEdit true");
+
+				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
+
+				// $jobID 			= cleanString( $data['jobID'] );
+				
+				// #********** Prepare SQL statement **********#
+
+				// $sql 		= 'UPDATE jobs
+				// 			SET jobTitle=:ph_jobTitle , jobDescription=:ph_jobDescription, jobDetails=:ph_jobDetails, jobStatus=:ph_jobStatus, compID=:ph_compID
+				//  			WHERE jobID = :ph_jobID';
+				
+				// $params 	= array('ph_jobID' => $jobID,
+				// 					'ph_jobTitle' => $jobTitle,
+				// 					'ph_jobDescription' => $jobDescription,
+				// 					'ph_jobDetails' =>  $jobDetails,
+				// 					'ph_jobStatus' => $jobStatus,
+				// 					'ph_compID' =>  $compID
+				// 					);
+
+				wh_log("params before function: " . implode(" ,", $params));
+
+				// Update job
+				$returnValue = retrieveTable($sql, $params, $select = false);
+if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . "\$returnValue : $returnValue (" . basename(__FILE__) . ")");
+				
+				// // Reply to customer
+				// echo $companies -- not used
+
+					} // END isEdit Verzweigung
+				} // END function
 ?>
