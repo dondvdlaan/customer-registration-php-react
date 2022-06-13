@@ -14,4 +14,6 @@ PHP is not designed to handle Restfull API's (POST, GET, PUT,etc) and therefor a
 has been implemented. For the Insert and Update operations, the command 
 "file_get_contents('php://input')" has been used.
 
+For PHP server debugging a log file is implemented(log.php), which starts automatically.
+
 Client side Pagination have been used.

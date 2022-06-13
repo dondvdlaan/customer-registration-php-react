@@ -70,7 +70,7 @@ export const CompanyForm = (props: Props) =>{
             <input 
             type="text" 
             className="form-control" 
-            id="jobType" 
+            id="compType" 
             placeholder="Company type"
             value={compType}
             onChange={(e)=>{setCompType(e.target.value)}}

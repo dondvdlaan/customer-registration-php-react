@@ -2,7 +2,7 @@
 #***************************************************************************************#
 
 #****************************************#
-#********** PAGE CONFIGURATION **********#
+#********** CONFIGURATION ***************#
 #****************************************#
 
 require_once('./include/config.inc.php');
@@ -10,7 +10,6 @@ require_once('./include/form.inc.php');
 require_once('./include/db.inc.php');
 require_once('./include/cors.php');
 require_once('./include/log.php');
-
 
 
 #******************************************#
@@ -27,25 +26,24 @@ $userID                         = NULL;
                 				
 				#********** PROCESS URL PARAMETERS **********#
 
-				#********** PREVIEW GET ARRAY **********#
-if(DEBUG_V_P)	wh_log("Line" . __LINE__ . " (" . basename(__FILE__) . ")");					
-if(DEBUG_V_P)	wh_log(print_r($_GET));	
+				wh_log("********** GET ARRAY **********");
+				wh_log("Line " . __LINE__ . " (" . basename(__FILE__) . ")");					
 
-#****************************************#
+				#****************************************#
 
 				// Schritt 1 URL: Prüfen, ob URL-Parameter übergeben wurde
 				if( isset($_GET['action']) ) {
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " URL-Parameter 'action' wurde übergeben.(" . basename(__FILE__) . ")");										
+				wh_log("Line " . __LINE__ . " URL-Parameter 'action' wurde übergeben.(" . basename(__FILE__) . ")");										
 										
-					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
+				// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
 				$action = cleanString($_GET['action']);
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$action: $action (" . basename(__FILE__) . ")");
+				wh_log("Line " . __LINE__ . " \$action: $action (" . basename(__FILE__) . ")");
 										
-					// Schritt 3 URL: Verzweigung
+				// Schritt 3 URL: Verzweigung
 										
-					#********** FETCH allJobs **********#
-					if( $action === 'allJobs'){
-if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Auswerten allJobs... <i>(" . basename(__FILE__) . ")</i></p>\n";
+				#********** FETCH allJobs **********#
+				if( $action === 'allJobs'){
+					wh_log("Line " . __LINE__ . " Auswerten allJobs... (" . basename(__FILE__) . ")");
 					
 					// Prepare SQL statement
 					$sql 		= 'SELECT * FROM jobs
@@ -55,13 +53,15 @@ if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Auswerten 
 
 					// Retrieve jobs table
 					$jobs = retrieveTable($sql, $params);
-if(DEBUG_V)		    echo "Line " . __LINE__ . "\$jobs : $jobs (" . basename(__FILE__) . ")";
+					wh_log("Line " . __LINE__ . " \$jobs : $jobs (" . basename(__FILE__) . ")");
 
 					// Reply to customer
 					echo $jobs;
 
-					#********** FETCH allCompanies **********#
-					}elseif ($action === 'allCompanies'){
+
+				#********** FETCH allCompanies **********#
+				}elseif ($action === 'allCompanies'){
+					wh_log("Line " . __LINE__ . " Auswerten allCompanies... (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
 					$sql 		= 'SELECT * FROM companies';
@@ -70,17 +70,19 @@ if(DEBUG_V)		    echo "Line " . __LINE__ . "\$jobs : $jobs (" . basename(__FILE_
 
 					// Retrieve companies table
 					$companies = retrieveTable($sql, $params);
-if(DEBUG_V)		    echo "Line " . __LINE__ . "\$companies : $companies (" . basename(__FILE__) . ")";
+					wh_log("Line " . __LINE__ . " \$companies : $companies (" . basename(__FILE__) . ")");
 
 					// Reply to customer
 					echo $companies;
 
-					#********** FETCH 1 Job per ID **********#
-					}elseif ($action === 'job'){
+
+				#********** FETCH 1 Job per ID **********#
+				}elseif ($action === 'job'){
+					wh_log("Line " . __LINE__ . " Auswerten job... (" . basename(__FILE__) . ")");
 
 					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
 					$jobID = cleanString($_GET['jobID']);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
 					$sql 		= 'SELECT * FROM jobs
@@ -91,19 +93,40 @@ if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FIL
 
 					// Retrieve job
 					$job = retrieveTable($sql, $params);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
 
 					// Reply to customer
 					echo $job;
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ .' job: ' .$job ); 
 
-					#********** DELETE Job per ID **********#
-					}elseif ($action === 'delete'){
-if(DEBUG)			echo "<p class='debug'>📑 <b>Line " . __LINE__ . "</b>: Delete job chosen... <i>(" . basename(__FILE__) . ")</i></p>\n";
+				#********** FETCH 1 Company per ID **********#
+				}elseif ($action === 'company'){
+					wh_log("Line " . __LINE__ . " Auswerten company... (" . basename(__FILE__) . ")");
+
+					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
+					$compID = cleanString($_GET['compID']);
+					wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
+
+					// Prepare SQL statement
+					$sql 		= 'SELECT * FROM companies
+									where compID = :ph_compID';
+								
+					$params 	= array('ph_compID' => $compID);
+
+					// Retrieve job
+					$comp = retrieveTable($sql, $params);
+					wh_log("Line " . __LINE__ . " \$comp : $comp (" . basename(__FILE__) . ")");
+
+					// Reply to customer
+					echo $comp;
+
+
+				#********** DELETE Job per ID **********#
+				}elseif ($action === 'delete'){
+					wh_log("Line " . __LINE__ . " Delete job chosen... (" . basename(__FILE__) . ")");
 
 					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
 					$jobID = cleanString($_GET['jobID']);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
 					$sql 		= 'DELETE FROM jobs
@@ -113,146 +136,66 @@ if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$jobID: $jobID (" . basename(__FIL
 
 					// Retrieve job
 					$job = retrieveTable($sql, $params, $select=false);
-if(DEBUG_V_P)		wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
 
-					// Reply to customer
-					// echo $job; not used
-// if(DEBUG_V_P)		wh_log("Line " . __LINE__ .' job: ' .$job );	
 					
-					#********** DELETE Company per ID **********#
-					}elseif ($action === 'deleteCompany'){
+				#********** DELETE Company per ID **********#
+				}elseif ($action === 'deleteCompany'){
 					wh_log( "Line " . __LINE__ . " Delete company <i>(" . basename(__FILE__) . ")</i></p>\n");
 	
-						// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
-						$compID = cleanString($_GET['compID']);
-						wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
+					// Schritt 2 URL: Werte auslesen, entschärfen, DEBUG-Ausgabe
+					$compID = cleanString($_GET['compID']);
+					wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
 	
-						// Prepare SQL statement
-						$sql 		= 'DELETE FROM companies
+					// Prepare SQL statement
+					$sql 		= 'DELETE FROM companies
 										where compID = :ph_compID';
 					
-						$params 	= array('ph_compID' => $compID);
+					$params 	= array('ph_compID' => $compID);
 	
-						// Retrieve job
-						$comp = retrieveTable($sql, $params, $select=false);
-						wh_log("Line " . __LINE__ . " \$comp : $comp (" . basename(__FILE__) . ")");
-	
-						// Reply to customer
-						// echo $job; not used
+					// Retrieve job
+					$comp = retrieveTable($sql, $params, $select=false);
+					wh_log("Line " . __LINE__ . " \$comp : $comp (" . basename(__FILE__) . ")");
 	
 					} // END GET Verzweigung
 				} // END URL PARAMETERS
 
+#***************************************************************************************#
 
-				#********** PREVIEW POST ARRAY **********#
+				#********** PROCESS POST PARAMETERS **********#
 
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " (" . basename(__FILE__) . ")");					
-if(DEBUG_V_P)	wh_log($_POST);
-			    #****************************************#
+				wh_log("********** POST ARRAY **********");
+
+				wh_log("Line " . __LINE__ . " (" . basename(__FILE__) . ")");					
+			    
+				#****************************************#
 				
-				// Instead of POST, file_get_contents is used for Insert and Update
+				// Instead of $_POST, file_get_contents is used for Insert and Update
 				$request_body = file_get_contents('php://input');
     			$data = json_decode($request_body, true);
 
 				// Check if POST data arrived
 				if( isset($data) ) {
-				wh_log( "Line " . __LINE__ . "POST functions have been received (" . basename(__FILE__) . ")");										
+				wh_log( "Line " . __LINE__ . " POST functions have been received (" . basename(__FILE__) . ")");										
 
 				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
 				$postSelector 			= cleanString( $data['postSelector'] );
-				wh_log("Line " . __LINE__ . "\$postSelector: $postSelector (" . basename(__FILE__) . ")");
+				wh_log("Line " . __LINE__ . " \$postSelector: $postSelector (" . basename(__FILE__) . ")");
 
 				// Schritt : POST Verzweigung
 										
 				#********** UPDATE / ADD Company **********#
 				if($postSelector === 'Company') {
-				wh_log( "Line " . __LINE__ . "POST $postSelector  has been received (" . basename(__FILE__) . ")");										
+				wh_log( "Line " . __LINE__ . " POST $postSelector  has been received (" . basename(__FILE__) . ")");										
 				
-				updateOrInsertCompany($data);
+					updateOrInsertCompany($data);
 
 				#********** UPDATE / ADD Job **********#
 				}elseif( $postSelector === 'Job'){
 				wh_log( "Line " . __LINE__ . "POST $postSelector has been received (" . basename(__FILE__) . ")");										
 
-				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
-if(DEBUG)		echo "Line " . __LINE__ . " Werte auslesen und entschärfen... (" . basename(__FILE__) . ")";
-					
-				$compID 			= cleanString( $data['compID'] );
-				$jobTitle 			= cleanString( $data['jobTitle'] );
-				$jobDescription		= cleanString( $data['jobDescription'] );
-				$jobDetails			= cleanString( $data['jobDetails'] );
-				$jobStatus			= cleanString( $data['jobStatus'] );
-				$isEdit 			= cleanString( $data['isEdit'] );
+					updateOrInsertJob($data);
 
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobTitle: $jobTitle (" . basename(__FILE__) . ")");
-
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobDescription: $jobDescription(" . basename(__FILE__) . ")");
-
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobDetails: $jobDetails(" . basename(__FILE__) . ")");
-
-if(DEBUG_V_P)	wh_log("Line " . __LINE__ . " \$jobStatus: $jobStatus (" . basename(__FILE__) . ")");
-
-					// Schritt 3 URL: Verzweigung
-										
-					#********** INSERT newJob **********#
-					if(!$isEdit) {
-					wh_log("isEdit false");
-				
-
-				#********** Prepare SQL statement **********#
-				
-				$sql 		= 'INSERT INTO jobs(jobTitle, jobDescription, jobDetails, jobStatus, compID)
-				 			VALUES (:ph_jobTitle, :ph_jobDescription, :ph_jobDetails, :ph_jobStatus, :ph_compID)';
-				
-				$params 	= array('ph_jobTitle' => $jobTitle,
-									'ph_jobDescription' => $jobDescription,
-									'ph_jobDetails' =>  $jobDetails,
-									'ph_jobStatus' => $jobStatus,
-									'ph_compID' =>  $compID
-									);
-
-				wh_log("params before function: " . implode(" ,", $params));
-
-				// Insert new job
-				$returnValue = retrieveTable($sql, $params);
-if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . " \$returnValue : $returnValue (" . basename(__FILE__) . ")");
-				
-				// Reply to customer
-				// echo $companies;  -- not used
-
-				#********** UPDATE Job **********#
-				}elseif($isEdit) {
-					wh_log("isEdit true");
-
-				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
-
-				$jobID 			= cleanString( $data['jobID'] );
-				
-				#********** Prepare SQL statement **********#
-
-				$sql 		= 'UPDATE jobs
-							SET jobTitle=:ph_jobTitle , jobDescription=:ph_jobDescription, jobDetails=:ph_jobDetails, jobStatus=:ph_jobStatus, compID=:ph_compID
-				 			WHERE jobID = :ph_jobID';
-				
-				$params 	= array('ph_jobID' => $jobID,
-									'ph_jobTitle' => $jobTitle,
-									'ph_jobDescription' => $jobDescription,
-									'ph_jobDetails' =>  $jobDetails,
-									'ph_jobStatus' => $jobStatus,
-									'ph_compID' =>  $compID
-									);
-
-				wh_log("params before function: " . implode(" ,", $params));
-
-				// Update job
-				$returnValue = retrieveTable($sql, $params, $select = false);
-if(DEBUG_V_P)	wh_log( "Line " . __LINE__ . " \$returnValue : $returnValue (" . basename(__FILE__) . ")");
-				
-				// // Reply to customer
-				// echo $companies -- not used
-
-						} // END isEdit Verzweigung
 					} // END POST Verzweigung
 				}	// END POST ARRAY 			
 ?>

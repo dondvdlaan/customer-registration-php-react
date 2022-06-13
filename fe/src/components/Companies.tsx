@@ -22,8 +22,8 @@ if(!companies){
 // Event handling
 const onSetPage= (page:number) =>setPage(page);
 
-const onUpdate = () =>{
-
+const onUpdate = (compID: string) =>{
+  navigate(`/updateComp/${compID}`);
 }
 
 const onDelete = (compID: string) =>{
@@ -63,15 +63,12 @@ const rowsOnThisPage = companies.slice(page*maxRowsPerPage,(page +1)*maxRowsPerP
       <th scope="row">
         {row.compID} 
         <Badge onClick={compID => onDelete(row.compID)} pill bg="warning">Del</Badge>{' '}
-        <Badge pill bg="secondary">Upd</Badge>{' '}
+        <Badge onClick={compID => onUpdate(row.compID)} pill bg="secondary">Upd</Badge>{' '}
       </th>
       <td>{row.compName} </td>
       <td>{row.compType} </td>
       <td>{row.compStatus} </td>
-      
-      {/* <td>{row.jobTitle}</td>
-      <td>{row.jobDescription}</td>
-      <td>{row.jobDate.slice(0, 10)}</td> */}
+     
       </tr>
       )}
     
@@ -85,6 +82,6 @@ const rowsOnThisPage = companies.slice(page*maxRowsPerPage,(page +1)*maxRowsPerP
   maxRowsPerPage  = {maxRowsPerPage}
   onSetPage       = {onSetPage}
    />
-      </>
+    </>
     )
 }
