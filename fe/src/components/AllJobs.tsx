@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApi } from "../shared/API";
-import { Job, NewJob } from "../types/Job";
+import { Job } from "../types/Job";
 import { Pagination } from "./Pagination";
 
 
 export const AllJobs = () => {
   
   // Constants and variables
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [jobs, setJobs] = useApi<Job[]>("?action=allJobs");  
   const navigate = useNavigate();
   const maxRowsPerPage = 3;
@@ -22,15 +22,15 @@ export const AllJobs = () => {
     navigate(`/details/${job.jobID}`)
   }
  
-  const onSetPage= (page:number) =>setPage(page);
+  const onSetPage= (page:number) => setPage(page);
 
   // Pagination
-  const totalPages = jobs.length / maxRowsPerPage;
-  const jobsOnThisPage = jobs.slice(page*maxRowsPerPage,(page +1)*maxRowsPerPage)
-
+  const jobsOnThisPage = jobs.slice(( page - 1) * 
+                                      maxRowsPerPage,
+                                      page * maxRowsPerPage)
     
     return(
-      <>
+  <>
       <br />
       <table className="table table-hover">
   <thead>
@@ -45,9 +45,9 @@ export const AllJobs = () => {
     </tr>
   </thead>
   <tbody>
-    {jobsOnThisPage.map(job =>
+    {jobsOnThisPage.map((job, index) =>
       <tr key={job.jobID} onClick={()=> onGoToDetail(job)}>
-      <th scope="row">{job.jobID}</th>
+      <th scope="row">{(index +1) + (page -1) * maxRowsPerPage}</th>
       <td>{job.jobTitle}</td>
       <td>{job.jobDescription}</td>
       <td>{job.compName}</td>
@@ -59,11 +59,11 @@ export const AllJobs = () => {
   </tbody>
 </table>
   <Pagination 
-  currentPage       = {page} 
-  totalPages = {totalPages}
-  maxRowsPerPage ={maxRowsPerPage}
-  onSetPage = {onSetPage}
+  currentPage     = {page} 
+  rows            = {jobs.length}
+  maxRowsPerPage  = {maxRowsPerPage}
+  onSetPage       = {onSetPage}
    />
-      </>
+</>
     )
 }

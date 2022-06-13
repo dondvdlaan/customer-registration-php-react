@@ -4,14 +4,15 @@ import { Api, useApi } from "../shared/API";
 import { Company } from "../types/Company";
 import { Pagination } from "./Pagination";
 import {Method} from "axios";
-import {  useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+import { TestModal } from "../shared/TestModal";
 
 
 export const Companies = () => {
 
 // Constants and variables
 const [companies, setCompanies] = useApi<Company[]>("?action=allCompanies");
-const [page, setPage] = useState(0);
+const [page, setPage] = useState(1);
 const navigate = useNavigate();
 const maxRowsPerPage = 3;
 
@@ -20,29 +21,26 @@ if(!companies){
   }
 
 // Event handling
-const onSetPage= (page:number) =>setPage(page);
+const onSetPage= (page:number) => setPage(page);
 
 const onUpdate = (compID: string) =>{
   navigate(`/updateComp/${compID}`);
 }
 
 const onDelete = (compID: string) =>{
-  console.log('CompID', compID);
-  
-//Constants and variables
-const method: Method = "GET";
-const path: string = `?action=deleteCompany&compID=${compID}`;
-
-Api(method,path, ()=>window.location.reload(),  {})
+  //Constants and variables
+  const method: Method = "GET";
+  const path: string = `?action=deleteCompany&compID=${compID}`;
+  // Callback to refresh page after API
+  Api(method,path, ()=>window.location.reload(),  {})
 } 
 
 // Pagination
-const totalPages = companies.length / maxRowsPerPage;
-const rowsOnThisPage = companies.slice(page*maxRowsPerPage,(page +1)*maxRowsPerPage)
-
+const rowsOnThisPage = companies.slice((page - 1) * maxRowsPerPage,
+                                        page      * maxRowsPerPage);
     
     return(
-      <>
+  <>
       <br />
       <table className="table table-hover table-light">
 
@@ -58,10 +56,11 @@ const rowsOnThisPage = companies.slice(page*maxRowsPerPage,(page +1)*maxRowsPerP
     </tr>
   </thead>
   <tbody>
-    {rowsOnThisPage.map(row =>
+
+    {rowsOnThisPage.map((row, index) =>
       <tr key={row.compID}>
       <th scope="row">
-        {row.compID} 
+        {(index +1) + (page -1) * maxRowsPerPage} 
         <Badge onClick={compID => onDelete(row.compID)} pill bg="warning">Del</Badge>{' '}
         <Badge onClick={compID => onUpdate(row.compID)} pill bg="secondary">Upd</Badge>{' '}
       </th>
@@ -78,10 +77,10 @@ const rowsOnThisPage = companies.slice(page*maxRowsPerPage,(page +1)*maxRowsPerP
   <br />
   <Pagination 
   currentPage     = {page} 
-  totalPages      = {totalPages}
+  rows            = {companies.length}
   maxRowsPerPage  = {maxRowsPerPage}
   onSetPage       = {onSetPage}
    />
-    </>
+</>
     )
 }

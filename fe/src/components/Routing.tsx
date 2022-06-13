@@ -10,6 +10,7 @@ import { Summary } from "./Summary";
 import { Companies } from "./Companies";
 import { AddCompany } from "./AddCompany";
 import { UpdateComp } from "./UpdateComp";
+import { TestPage } from "./TestPage";
 
 export default function Routing(): ReactElement {
   return (
@@ -27,6 +28,8 @@ export default function Routing(): ReactElement {
       <Route path="/details/:jobID" element={<JobDetails />} />
 
       <Route path="/" element={<Navigate to="/summary" />} />
+      <Route path="/testPage" element={<TestPage />} />
+
     </Routes>
   );
 }

@@ -1,5 +1,6 @@
 import { useApi } from "../shared/API";
 import { APPROACHED, REGISTERED } from "../shared/Constants";
+import { TestModal } from "../shared/TestModal";
 import { Company } from "../types/Company";
 import { NewJob } from "../types/Job";
 
