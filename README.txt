@@ -1,7 +1,7 @@
 Customer registration PHP REACT
 
 In this application the Back-End is composed of PHP and the Front-End of REACT with the 
-Ant library. Additional css comes from Bootstrap.
+Bootstrap css library.
 
 Set-up:
 - Apache2 server at localhost:80(default)

@@ -21,7 +21,6 @@ const navLinkClassname = ({ isActive }: { isActive: boolean }) =>
           <NavLink className="nav-link" to="/newJob"  >New Job </NavLink >  
           <NavLink className="nav-link" to="/newCompany"  >Add Company </NavLink > 
            
-          <NavLink className="nav-link" to="/testPage"  >Test Page </NavLink >  
 
 
         </ul>                                      
