@@ -1,0 +1,12 @@
+.companyForm input:invalid {
+    border-color: #f14668;
+}
+.companyForm:invalid {
+    border: 1px solid #f14668;
+}
+.companyForm input:valid {
+    border-color: #48c78e;
+}
+.companyForm:valid {
+    border: 1px solid #48c78e;
+}

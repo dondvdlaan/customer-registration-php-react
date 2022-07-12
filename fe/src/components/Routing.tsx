@@ -10,7 +10,6 @@ import { Summary } from "./Summary";
 import { Companies } from "./Companies";
 import { AddCompany } from "./AddCompany";
 import { UpdateComp } from "./UpdateComp";
-import { CompaniesCards } from "./CompaniesCards";
 
 export default function Routing(): ReactElement {
   return (

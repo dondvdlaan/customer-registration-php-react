@@ -1,4 +1,4 @@
-import { useApi } from "../shared/API";
+  import { useApi } from "../shared/API";
 import { APPROACHED, REGISTERED } from "../shared/Constants";
 import { TestModal } from "../shared/TestModal";
 import { Company } from "../types/Company";
@@ -34,6 +34,9 @@ return(
       Total Applied
     </div>
     <div className="col">
+      Registered
+    </div>
+    <div className="col">
       Pending
     </div>
     <div className="col">
@@ -49,6 +52,9 @@ return(
     </div>
     <div className="col text-center     ">
         {jobs.length} 
+    </div>
+    <div className="col">
+      {jobs.filter(job => job.jobStatus === "registered").length}
     </div>
     <div className="col">
       {jobs.filter(job => job.jobStatus === "pending").length}

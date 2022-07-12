@@ -5,8 +5,9 @@ Bootstrap css library.
 
 Set-up:
 - Apache2 server at localhost:80(default)
+- PHP server to start with $ php - S localhost:8000
 - MySQL Database
-- REACT at localhost:3000(default)
+- REACT at localhost:3000(default), npm install, npm start
 - CSS from Bootstrap
 
 The PHP files are located in the root of the application. REACT is placed in fe directory.
@@ -17,3 +18,6 @@ has been implemented. For the Insert and Update operations, the command
 For PHP server debugging a log file is implemented(log.php), which starts automatically.
 
 Client side Pagination have been used.
+
+TODO
+- Responsive collapse Navbar with React-bootstrap

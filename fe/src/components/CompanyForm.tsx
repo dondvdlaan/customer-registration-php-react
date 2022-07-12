@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Api } from "../shared/API";
 import { APPROACHED, CLOSED, PENDING, REGISTERED, WON } from "../shared/Constants";
 import { Company } from "../types/Company";
+import css from "./CompanyForm.module.css";
 
 interface Props extends Company{
     isEdit: boolean
@@ -36,19 +37,21 @@ export const CompanyForm = (props: Props) =>{
     const onFormSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
         console.log('Form submitted');
+
         const [method, path]:[Method, string] = props.isEdit
         ? ["post", `updateCompany`]
         : ["post", `newCompany`];
 
         Api(method,path, ()=>navigate('/companies'), company())
-        // Api("post","newJob", ()=>navigate('/allJobs'), jobData)
 
     }
 
     return(
         <>
         <br />
-    <form onSubmit={onFormSubmit}>
+    <form 
+    className   ={css.companyForm}
+    onSubmit    ={onFormSubmit}>
         
         <div className="form-group row">
             <label htmlFor="compName" className="col-sm-2 col-form-label">Company Name</label>
@@ -56,8 +59,9 @@ export const CompanyForm = (props: Props) =>{
             <input 
             type="text" 
             className="form-control" 
-            id="jobTitle" 
+            id="compNameTitle" 
             placeholder="Company name"
+            required
             value={compName}
             onChange={(e)=>{setCompName(e.target.value)}}
             />
@@ -87,6 +91,7 @@ export const CompanyForm = (props: Props) =>{
             placeholder="-----"
             value={compStatus} 
             onChange={(e)=>{setCompStatus(e.target.value)}}
+            required
             >
                 <option value="" disabled selected >Status</option>
                     <option value={REGISTERED}>{REGISTERED}</option>

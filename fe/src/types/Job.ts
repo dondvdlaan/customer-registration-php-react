@@ -1,3 +1,6 @@
+interface Registered{
+    registered: string;
+}
 interface Pending{
     pending: string;
 }
@@ -7,7 +10,7 @@ interface Closed{
 interface Won{
     won: string;
 }
-export type JobStatus = Pending | Closed | Won;
+export type JobStatus = Registered |Pending | Closed | Won;
 
 export interface Job extends NewJob{
 compID: string;

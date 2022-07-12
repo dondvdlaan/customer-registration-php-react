@@ -2,9 +2,10 @@ import {Method} from "axios";
 import React, { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { Api, useApi } from "../shared/API";
-import { CLOSED, PENDING, WON } from "../shared/Constants";
+import { CLOSED, PENDING, REGISTERED, WON } from "../shared/Constants";
 import { Company } from "../types/Company";
 import { NewJob, Job } from "../types/Job";
+import css from "./JobForm.module.css";
 
 interface Props extends Job{
     isEdit: boolean
@@ -19,10 +20,9 @@ export const JobForm = (props: Props) =>{
     const [jobStatus, setJobStatus] = useState(props.jobStatus);
     const navigate = useNavigate();
     const [companies, setCompanies] = useApi<Company[]>("?action=allCompanies");
-
+    // Selector used in PHP server to sort out POST requests
     const postSelector = "Job";
     
-
 
     if(!companies){
         return (<p>Lade...</p>)
@@ -68,19 +68,20 @@ export const JobForm = (props: Props) =>{
     const onFormSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
         console.log('Form submitted');
+
         const [method, path, jobData]:[Method, string, {}] = props.isEdit
         ? ["post", `?action=updateJob`, jobDataUpdate]
         : ["post", `?action=newJob`, jobDataNew];
 
         Api(method,path, ()=>navigate('/allJobs'), jobData)
-        // Api("post","newJob", ()=>navigate('/allJobs'), jobData)
-
     }
 
     return(
         <>
         <br />
-    <form onSubmit={onFormSubmit}>
+    <form 
+    className   = {css.jobForm}
+    onSubmit    ={onFormSubmit}>
         <div className="form-group row">
             <label htmlFor="company" className="col-sm-2 col-form-label">Company</label>
             <div className="col-sm-10">
@@ -91,6 +92,7 @@ export const JobForm = (props: Props) =>{
             placeholder="-----"
             value={compID} 
             onChange={(e)=>{setCompID(e.target.value)}}
+            required
             >
                 {(props.isEdit)?
                 <option value={compID}>{props.compName}</option>
@@ -114,6 +116,8 @@ export const JobForm = (props: Props) =>{
             placeholder="Job Title"
             value={jobTitle}
             onChange={(e)=>{setJobTitle(e.target.value)}}
+            required
+            minLength={3}
             />
             </div>
         </div>
@@ -156,8 +160,10 @@ export const JobForm = (props: Props) =>{
             placeholder="-----"
             value={jobStatus} 
             onChange={(e)=>{setJobStatus(e.target.value)}}
+            required
             >
                 <option value="" disabled selected >Status</option>
+                    <option value={REGISTERED}>{REGISTERED}</option>
                     <option value={PENDING}>{PENDING}</option>
                     <option value={WON}>{WON}</option>
                     <option value={CLOSED}>{CLOSED}</option>

@@ -1,0 +1,12 @@
+.jobForm input:invalid {
+    border-color: #f14668;
+}
+.jobForm:invalid {
+    border: 1px solid #f14668;
+}
+.jobForm input:valid {
+    border-color: #48c78e;
+}
+.jobForm:valid {
+    border: 1px solid #48c78e;
+}
