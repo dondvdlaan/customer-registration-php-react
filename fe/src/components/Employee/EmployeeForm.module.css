@@ -1,0 +1,12 @@
+.employeeForm input:invalid {
+    border-color: #f14668;
+}
+.employeeForm:invalid {
+    border: 1px solid #f14668;
+}
+.employeeForm input:valid {
+    border-color: #48c78e;
+}
+.employeeForm:valid {
+    border: 1px solid #48c78e;
+}

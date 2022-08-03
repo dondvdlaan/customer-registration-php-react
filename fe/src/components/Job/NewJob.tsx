@@ -1,10 +1,6 @@
 import { JobForm } from "./JobForm"
 
-
-
 export const NewJob = () =>{
-
-
 
     return(
         <JobForm

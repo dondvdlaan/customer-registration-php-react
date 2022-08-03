@@ -64,7 +64,9 @@ $userID                         = NULL;
 					wh_log("Line " . __LINE__ . " Auswerten allCompanies... (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
-					$sql 		= 'SELECT * FROM companies';
+					$sql 		= 	'	SELECT * FROM companies
+										LEFT JOIN employees USING(compID)
+									';
 								
 					$params 	= array();
 
@@ -107,7 +109,8 @@ $userID                         = NULL;
 					wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
 
 					// Prepare SQL statement
-					$sql 		= 'SELECT * FROM companies
+					$sql 		= '	SELECT * FROM companies
+									left JOIN employees USING(compID)
 									where compID = :ph_compID';
 								
 					$params 	= array('ph_compID' => $compID);
@@ -118,7 +121,6 @@ $userID                         = NULL;
 
 					// Reply to customer
 					echo $comp;
-
 
 				#********** DELETE Job per ID **********#
 				}elseif ($action === 'delete'){
@@ -138,7 +140,6 @@ $userID                         = NULL;
 					$job = retrieveTable($sql, $params, $select=false);
 					wh_log("Line " . __LINE__ . " \$job : $job (" . basename(__FILE__) . ")");
 
-					
 				#********** DELETE Company per ID **********#
 				}elseif ($action === 'deleteCompany'){
 					wh_log( "Line " . __LINE__ . " Delete company <i>(" . basename(__FILE__) . ")</i></p>\n");
@@ -195,6 +196,12 @@ $userID                         = NULL;
 				wh_log( "Line " . __LINE__ . "POST $postSelector has been received (" . basename(__FILE__) . ")");										
 
 					updateOrInsertJob($data);
+
+				#********** UPDATE / ADD Employee **********#	
+				}elseif( $postSelector === 'Employee'){
+				wh_log( "Line " . __LINE__ . " POST $postSelector has been received (" . basename(__FILE__) . ")");										
+	
+					updateOrInsertEmployee($data);
 
 					} // END POST Verzweigung
 				}	// END POST ARRAY 			

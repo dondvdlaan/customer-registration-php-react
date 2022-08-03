@@ -196,7 +196,7 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 				*	@param [String $data]			Job Data 
 				*/
 				function updateOrInsertJob($data){
-				wh_log("Line " . __LINE__ . " function updateOrInsertCompany (" . basename(__FILE__) . ")");
+				wh_log("Line " . __LINE__ . " function updateOrInsertJob (" . basename(__FILE__) . ")");
 	
 				// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
 				wh_log("Line " . __LINE__ . " Werte auslesen und entschärfen... (" . basename(__FILE__) . ")");
@@ -282,4 +282,102 @@ if(DEBUG_DB)		echo "<p class='debugDb hint'>📑 <b>Line " . __LINE__ . ":</b> A
 				
 					} // END isEdit Verzweigung
 				} // END function
+
+#******************************************************************************************************#
+
+				/*
+				*	Update / Insert Employee
+				*
+				*	@param [String $data]			Employee Data 
+				*/
+				function updateOrInsertEmployee($data){
+					wh_log("Line " . __LINE__ . " function updateOrInsertEmployee (" . basename(__FILE__) . ")");
+		
+					// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
+					wh_log("Line " . __LINE__ . " Werte auslesen und entschärfen... (" . basename(__FILE__) . ")");
+			
+					$emplID 			= cleanString( $data['emplID'] );
+					$emplFirstName		= cleanString( $data['emplFirstName'] );
+					$emplLastName		= cleanString( $data['emplLastName'] );
+					$emplTel			= cleanString( $data['emplTel'] );
+					$emplEmail			= cleanString( $data['emplEmail'] );
+					$compID				= cleanString( $data['compID'] );
+
+					$isEdit 			= cleanString( $data['isEdit'] );
+	
+					wh_log("Line " . __LINE__ . " \$emplID: $emplID (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$emplFirstName: $emplFirstName (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$emplLastName: $emplLastName (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$emplTel: $emplTel (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$emplEmail: $emplEmail (" . basename(__FILE__) . ")");
+					wh_log("Line " . __LINE__ . " \$compID: $compID (" . basename(__FILE__) . ")");
+	
+					// Schritt 3 URL: Verzweigung
+											
+					#********** INSERT new Employee **********#
+					if(!$isEdit) {
+					wh_log("isEdit false");
+					
+	
+					#********** Prepare SQL statement **********#
+					
+					$sql 		= ' INSERT INTO employees(	emplFirstName, 
+															emplLastName,
+															emplEmail,
+															emplTel,
+															compID)
+								 	VALUES (:ph_emplFirstName, 
+											:ph_emplLastName,
+											:ph_emplEmail,
+											:ph_emplTel,
+											:ph_compID
+											)';
+					
+					$params 	= array(
+										'ph_emplFirstName' 	=> $emplFirstName,
+										'ph_emplLastName' 	=> $emplLastName,
+										'ph_emplEmail' 		=> $emplEmail,
+										'ph_emplTel' 		=> $emplTel,
+										'ph_compID' 		=> $compID
+										);
+	
+					wh_log("Line " . __LINE__ . " Params: " . implode(" ,", $params). " (" . basename(__FILE__) . ")");
+	
+					// Insert new employee
+					$returnValue = retrieveTable($sql, $params);
+					wh_log( "Line " . __LINE__ . " \$returnValue : $returnValue (" . basename(__FILE__) . ")");
+					
+	
+					#********** UPDATE Job **********#
+					}elseif($isEdit) {
+						wh_log("isEdit true");
+	
+					// Schritt 2 FORM: Werte auslesen, entschärfen, DEBUG-Ausgabe
+	
+					$emplID 	= cleanString( $data['emplID'] );
+					
+					#********** Prepare SQL statement **********#
+	
+					$sql 		= ' UPDATE employees
+	 								SET emplFirstName	=	:ph_emplFirstName,
+									 	emplLastName	=	:ph_emplLastName,
+										emplTel			=	:ph_emplTel,
+										emplEmail		=	:ph_emplEmail
+									WHERE emplID = :ph_emplID';
+					
+					$params 	= array('ph_emplID' 		=> $emplID,
+										'ph_emplFirstName'	=> $emplFirstName,
+										'ph_emplLastName'	=> $emplLastName,
+										'ph_emplTel'		=> $emplTel,
+										'ph_emplEmail'		=> $emplEmail										
+										);
+	
+					wh_log("Line " . __LINE__ . " Params: " . implode(" ,", $params). " (" . basename(__FILE__) . ")");
+	
+					// Update Employee
+					$returnValue = retrieveTable($sql, $params, $select = false);
+					wh_log( "Line " . __LINE__ . " \$returnValue : $returnValue (" . basename(__FILE__) . ")");
+					
+						} // END isEdit Verzweigung
+					} // END function
 ?>

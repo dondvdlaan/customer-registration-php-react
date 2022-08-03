@@ -15,13 +15,12 @@ const navLinkClassname = ({ isActive }: { isActive: boolean }) =>
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <ul className="nav nav-pills" >               
-          <NavLink className="nav-link" to="/summary"  >Summary </NavLink >  
-          <NavLink className="nav-link" to="/allJobs"  >All Jobs </NavLink >  
-          <NavLink className="nav-link" to="/companies"  >Companies </NavLink >  
-          <NavLink className="nav-link" to="/newJob"  >New Job </NavLink >  
-          <NavLink className="nav-link" to="/newCompany"  >Add Company </NavLink > 
-           
-
+          <NavLink className="nav-link" to="/summary"     >Summary      </NavLink >  
+          <NavLink className="nav-link" to="/allJobs"     >All Jobs     </NavLink >  
+          <NavLink className="nav-link" to="/companies"   >Companies    </NavLink >  
+          <NavLink className="nav-link" to="/addJob"      >New Job      </NavLink >  
+          <NavLink className="nav-link" to="/addCompany"  >Add Company  </NavLink > 
+          <NavLink className="nav-link" to="/addEmployee" >Add Employee </NavLink > 
 
         </ul>                                      
       </nav>

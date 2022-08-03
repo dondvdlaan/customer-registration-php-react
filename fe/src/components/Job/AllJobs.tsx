@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useApi } from "../shared/API";
-import { Job } from "../types/Job";
-import { Pagination } from "./Pagination";
+import { useState }     from "react";
+import { useNavigate }  from "react-router-dom";
+import { useApi }       from "../../shared/API";
+import { Job }          from "../../types/Job";
+import { Pagination }   from "../Pagination";
 
 
 export const AllJobs = () => {
   
-  // Constants and variables
+  // ******************** Constants and variables ********************
   const [page, setPage] = useState(1);
   const [jobs, setJobs] = useApi<Job[]>("?action=allJobs");  
-  const navigate = useNavigate();
-  const maxRowsPerPage = 3;
+  const navigate        = useNavigate();
+  const maxRowsPerPage  = 3;
   
   if(!jobs){
     return (<p>Lade...</p>)
   }
   
-  // Event handling
+  // ******************** Event handling ********************
   const onGoToDetail = (job: Job) =>{
     navigate(`/details/${job.jobID}`)
   }

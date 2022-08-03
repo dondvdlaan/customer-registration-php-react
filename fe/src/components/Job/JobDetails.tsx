@@ -1,24 +1,22 @@
-import {  useNavigate, useParams } from 'react-router-dom';
-import { Api, useApi } from '../shared/API';
-import { Job } from '../types/Job';
-import {Method} from "axios";
+import {  useNavigate, useParams }  from 'react-router-dom';
+import {Method}                     from "axios";
+import { Api, useApi }              from '../../shared/API';
+import { Job }                      from '../../types/Job';
 
-
+// Main
 export const JobDetails = () => {
 
-    // Constants and Hooks
+    // ************** Constants and Hooks **************
     const { jobID } = useParams<{jobID: string}>();
-    let [job, setJob] = useApi<Job[]>(`?action=job&jobID=${jobID}`);
-    const navigate = useNavigate();
+    const job       = useApi<Job[]>(`?action=job&jobID=${jobID}`)[0];
+    const navigate  = useNavigate();
     
-    console.log('jobID', jobID);
-    console.log('job: ', job);
-    
-    if(!job){return (<p>Lade...</p>)}
+    // Wait till job arrived
+    if(job == undefined){return (<p>Lade...</p>)}
 
-    //Event hamdling
+    // ************** Event hamdling ************** 
     const onUpdate = ()=> {
-    navigate(`/UpdateJob/${jobID}`);
+      navigate(`/UpdateJob/${jobID}`);
     }
 
     const onDelete = ()=> {
@@ -46,6 +44,7 @@ export const JobDetails = () => {
     {job[0].jobDate.slice(0,10)}
     </div>
   </div>
+  
   <div className="row">
     <div className="col">
       Description
@@ -60,6 +59,7 @@ export const JobDetails = () => {
     {job[0].compName}
     </div>
   </div>
+  
   <div className="row">
     <div className="col">
       Details
@@ -75,16 +75,27 @@ export const JobDetails = () => {
     </div>
   </div>
   <br />
+  
   <div className="row">
     <div className="col">
-    <button type="button" onClick={onUpdate} className="btn btn-primary btn-sm">Update</button>
-    <button type="button" onClick={onDelete} className="btn btn-warning btn-sm">Delete</button>
+    <button 
+      type="button" 
+      onClick={onUpdate} 
+      className="btn btn-primary btn-sm">
+        Update
+    </button>
+    <button 
+      type="button" 
+      onClick={onDelete} 
+      className="btn btn-warning btn-sm">
+        Delete
+    </button>
     
     </div>
     <div className="col">
     </div>
-</div>
   </div>
+</div>
   
 </>
     )

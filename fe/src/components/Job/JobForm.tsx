@@ -1,23 +1,25 @@
-import {Method} from "axios";
-import React, { useState } from "react"
-import { useNavigate } from 'react-router-dom';
-import { Api, useApi } from "../shared/API";
-import { CLOSED, PENDING, REGISTERED, WON } from "../shared/Constants";
-import { Company } from "../types/Company";
-import { NewJob, Job } from "../types/Job";
-import css from "./JobForm.module.css";
+import {Method}             from "axios";
+import React, { useState }  from "react"
+import { useNavigate }      from 'react-router-dom';
+import { Api, useApi }      from "../../shared/API";
+import { CLOSED, PENDING, 
+    REGISTERED, WON }       from "../../shared/Constants";
+import { Company }          from "../../types/Company";
+import { Job }              from "../../types/Job";
+import css                  from "./JobForm.module.css";
 
 interface Props extends Job{
     isEdit: boolean
 }
-
+// Main
 export const JobForm = (props: Props) =>{
-    // Hooks and Constants
-    const [compID, setCompID] = useState(props.compID);
-    const [jobTitle, setJobTitle] = useState(props.jobTitle);
-    const [jobDescription, setJobDescription] = useState(props.jobDescription);
-    const [jobDetails, setJobDetails] = useState(props.jobDetails);
-    const [jobStatus, setJobStatus] = useState(props.jobStatus);
+    
+    // ******************** Hooks and Constants ********************
+    const [compID, setCompID]                   = useState(props.compID);
+    const [jobTitle, setJobTitle]               = useState(props.jobTitle);
+    const [jobDescription, setJobDescription]   = useState(props.jobDescription);
+    const [jobDetails, setJobDetails]           = useState(props.jobDetails);
+    const [jobStatus, setJobStatus]             = useState(props.jobStatus);
     const navigate = useNavigate();
     const [companies, setCompanies] = useApi<Company[]>("?action=allCompanies");
     // Selector used in PHP server to sort out POST requests
@@ -27,15 +29,8 @@ export const JobForm = (props: Props) =>{
     if(!companies){
         return (<p>Lade...</p>)
       }
-    // const job = () =>({
-    //     jobTitle,
-    //     jobDescription,
-    //     jobDetails,
-    //     jobDate: new Date().toISOString().slice(0, 10),
-    //     jobSatus: "pending",
-    //     compID: compID
-    // })
-     const jobDataNew = {
+
+      const jobDataNew = {
         postSelector,
         isEdit: props.isEdit,
         jobTitle,
@@ -54,24 +49,15 @@ export const JobForm = (props: Props) =>{
         jobStatus,
         compID
         }
-        
-    
-    console.log('New/updated Company:', compID);
-    console.log('JobID:', props.jobID);
-    console.log('New/updated jobTitle:', jobTitle);
-    console.log('New job:', jobDataNew);
-    console.log('New job:', jobDataUpdate);
 
-
-
-    // Event handling
+    // ******************** Event handling ******************** 
     const onFormSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
         console.log('Form submitted');
 
         const [method, path, jobData]:[Method, string, {}] = props.isEdit
-        ? ["post", `?action=updateJob`, jobDataUpdate]
-        : ["post", `?action=newJob`, jobDataNew];
+        ? ["POST", `?action=updateJob`, jobDataUpdate]
+        : ["POST", `?action=newJob`, jobDataNew];
 
         Api(method,path, ()=>navigate('/allJobs'), jobData)
     }
@@ -86,12 +72,12 @@ export const JobForm = (props: Props) =>{
             <label htmlFor="company" className="col-sm-2 col-form-label">Company</label>
             <div className="col-sm-10">
             <select 
-            name="company" 
-            className="form-control" 
-            id="company" 
-            placeholder="-----"
-            value={compID} 
-            onChange={(e)=>{setCompID(e.target.value)}}
+            name        ="company" 
+            className   ="form-control" 
+            id          ="company" 
+            placeholder ="-----"
+            value       ={compID} 
+            onChange    ={(e)=>{setCompID(e.target.value)}}
             required
             >
                 {(props.isEdit)?
@@ -110,14 +96,14 @@ export const JobForm = (props: Props) =>{
             <label htmlFor="jobTitle" className="col-sm-2 col-form-label">Job Title</label>
             <div className="col-sm-10">
             <input 
-            type="text" 
-            className="form-control" 
-            id="jobTitle" 
-            placeholder="Job Title"
-            value={jobTitle}
-            onChange={(e)=>{setJobTitle(e.target.value)}}
+            type        ="text" 
+            className   ="form-control" 
+            id          ="jobTitle" 
+            placeholder ="Job Title"
+            value       ={jobTitle}
+            onChange    ={(e)=>{setJobTitle(e.target.value)}}
             required
-            minLength={3}
+            minLength=  {3}
             />
             </div>
         </div>
@@ -126,12 +112,12 @@ export const JobForm = (props: Props) =>{
             <label htmlFor="jobDescription" className="col-sm-2 col-form-label">Job Description</label>
             <div className="col-sm-10">
             <input 
-            type="text" 
-            className="form-control" 
-            id="jobDescription" 
-            placeholder="Job Description"
-            value={jobDescription}
-            onChange={(e)=>{setJobDescription(e.target.value)}}
+            type        ="text" 
+            className   ="form-control" 
+            id          ="jobDescription" 
+            placeholder ="Job Description"
+            value       ={jobDescription}
+            onChange    ={(e)=>{setJobDescription(e.target.value)}}
             />
             </div>
         </div>
@@ -140,12 +126,12 @@ export const JobForm = (props: Props) =>{
             <label htmlFor="jobDetails" className="col-sm-2 col-form-label">Job Details</label>
             <div className="col-sm-10">
             <input 
-            type="text" 
-            className="form-control" 
-            id="jobDetails" 
-            placeholder="Job Details"
-            value={jobDetails}
-            onChange={(e)=>{setJobDetails(e.target.value)}}
+            type        ="text" 
+            className   ="form-control" 
+            id          ="jobDetails" 
+            placeholder ="Job Details"
+            value       ={jobDetails}
+            onChange    ={(e)=>{setJobDetails(e.target.value)}}
             />
             </div>
         </div>
@@ -154,12 +140,12 @@ export const JobForm = (props: Props) =>{
             <label htmlFor="jobStatus" className="col-sm-2 col-form-label">Status</label>
             <div className="col-sm-10">
             <select 
-            name="jobStatus" 
-            className="form-control" 
-            id="jobStatus" 
-            placeholder="-----"
-            value={jobStatus} 
-            onChange={(e)=>{setJobStatus(e.target.value)}}
+            name        ="jobStatus" 
+            className   ="form-control" 
+            id          ="jobStatus" 
+            placeholder ="-----"
+            value       ={jobStatus} 
+            onChange    ={(e)=>{setJobStatus(e.target.value)}}
             required
             >
                 <option value="" disabled selected >Status</option>
