@@ -1,4 +1,7 @@
-Customer registration PHP REACT
+Freelance job registration PHP REACT
+
+With this application you can register your freelance jobs from offering stage till
+order. The jobs are related with a company and contact person.
 
 In this application the Back-End is composed of PHP and the Front-End of REACT with the 
 Bootstrap css library.
